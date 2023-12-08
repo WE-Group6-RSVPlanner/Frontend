@@ -1,0 +1,60 @@
+$white: #fafafa;
+$black: #171717;
+$contrast: #faae19;
+$button-margin: 15px;
+$list-item-margin: 15px;
+
+.animation-container{
+  animation: zoom-in-zoom-out 800ms ease;
+}
+
+.nav-menu-container{
+  text-align: center;
+}
+
+.nav-header{
+  font-size: 48px;
+  margin-bottom: 2*$list-item-margin;
+}
+
+.nav-list{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list-item{
+  margin-bottom: $list-item-margin;
+}
+
+.nav-link{
+  color: $white;
+  font-family: Kanit, sans-serif;
+}
+
+.active {
+  color: $contrast;
+}
+
+.close-button{
+  position: fixed;
+  top: $button-margin;
+  right: $button-margin;
+}
+
+.close-button:hover{
+  color: $contrast;
+  animation: zoom-in-zoom-out 1s ease infinite;
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}

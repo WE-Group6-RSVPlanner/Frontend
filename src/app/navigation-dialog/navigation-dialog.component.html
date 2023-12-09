@@ -5,12 +5,20 @@
 </div>
 <div class="animation-container">
   <div class="container nav-menu-container">
-    <h1 mat-dialog-title class="nav-header">RSVPlanner</h1>
+    <img mat-dialog-title alt="RSVPlanner Logo" src="../../assets/img/logo-no-background.png" class="menu-logo">
     <ul class="nav-list">
-      <li class="nav-list-item"><a id="home" class="nav-link" href="#">HOME</a></li>
-      <li class="nav-list-item"><a id="private_events" class="nav-link" href="#">PRIVATE EVENT</a></li>
-      <li class="nav-list-item"><a id="public_events" class="nav-link" href="#">PUBLIC EVENT</a></li>
-      <li class="nav-list-item"><a id="my_events" class="nav-link" href="#">MY EVENTS</a></li>
+      <li class="nav-list-item">
+        <a class="nav-link" routerLink="" routerLinkActive="active-button" [routerLinkActiveOptions]="{ exact: true }" (click)="onClose()">HOME</a>
+      </li>
+      <li class="nav-list-item">
+        <a class="nav-link" routerLink="/public-events" routerLinkActive="active-button" (click)="onClose()">PUBLIC EVENT</a>
+      </li>
+      <li class="nav-list-item">
+        <a class="nav-link" routerLink="/private-events" routerLinkActive="active-button" (click)="onClose()">PRIVATE EVENT</a>
+      </li>
+      <li class="nav-list-item">
+        <a class="nav-link" routerLink="/my-events" routerLinkActive="active-button" (click)="onClose()">MY EVENTS</a>
+      </li>
     </ul>
   </div>
 </div>

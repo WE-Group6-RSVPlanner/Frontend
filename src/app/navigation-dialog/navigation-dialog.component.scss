@@ -1,6 +1,6 @@
-$white: #fafafa;
-$black: #171717;
-$contrast: #faae19;
+@import "src/styles/colors";
+@import "src/styles/animations";
+
 $button-margin: 15px;
 $list-item-margin: 15px;
 
@@ -10,6 +10,11 @@ $list-item-margin: 15px;
 
 .nav-menu-container{
   text-align: center;
+}
+
+.menu-logo{
+  max-width: 40vw;
+  padding-bottom: 1.5*$list-item-margin;
 }
 
 .nav-header{
@@ -36,6 +41,10 @@ $list-item-margin: 15px;
   color: $contrast;
 }
 
+.active-button {
+  color: $contrast;
+}
+
 .close-button{
   position: fixed;
   top: $button-margin;
@@ -45,16 +54,4 @@ $list-item-margin: 15px;
 .close-button:hover{
   color: $contrast;
   animation: zoom-in-zoom-out 1s ease infinite;
-}
-
-@keyframes zoom-in-zoom-out {
-  0% {
-    transform: scale(1, 1);
-  }
-  50% {
-    transform: scale(1.5, 1.5);
-  }
-  100% {
-    transform: scale(1, 1);
-  }
 }

@@ -1,8 +1,10 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-custom">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">RSVPlanner</a>
+    <a class="navbar-brand" href="#">
+      <img mat-dialog-title src="../../assets/img/logo-no-background.png" alt="RSVPlanner Logo" class="navbar-logo">
+    </a>
     <div class="d-flex">
-      <button mat-icon-button color="accent" aria-label="Navigation Menu Button"  (click)="openNavigation('home')">
+      <button class="navbar-dropdown" mat-icon-button aria-label="Navigation Menu Button"  (click)="openNavigation('home')">
         <mat-icon>menu</mat-icon>
       </button>
     </div>

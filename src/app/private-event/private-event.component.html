@@ -1,0 +1,68 @@
+<section class="wrapper">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-10 col-lg-10 mb-4">
+        <div class="card text-dark">
+          <img src="assets/img/private-event-bg.jpg" class="card-img" alt="private-event background image">
+          <div class="card-img-overlay">
+            <h1 class="card-title">New Private Event</h1>
+            <form [formGroup]="privateEventForm">
+              <hr class="hr" />
+              <h2 class="subtitle"> Organizer</h2>
+              <div class="row">
+                <mat-form-field class="col-6">
+                  <mat-label>Enter your email</mat-label>
+                  <input matInput placeholder="john.smith@example.com" formControlName="email" required>
+                </mat-form-field>
+                <mat-form-field class="col-6">
+                  <mat-label>Enter your name</mat-label>
+                  <input matInput placeholder="John Smith" formControlName="name" required>
+                </mat-form-field>
+              </div>
+              <hr class="hr" />
+              <h2 class="subtitle"> Event Data</h2>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>What Event are you planning?</mat-label>
+                  <input matInput placeholder="Super Duper Wedding" formControlName="title" required>
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>Short description of your cool event</mat-label>
+                  <input matInput placeholder="Welcome to my super cool event" formControlName="description">
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field class="col-11">
+                  <mat-label>Possible dates for you event to choose from</mat-label>
+                  <input matInput formControlName="dateList">
+                </mat-form-field>
+                <div class="col text-end">
+                  <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+                    <mat-icon>add</mat-icon>
+                  </button>
+                </div>
+              </div>
+              <div class="row">
+                <mat-form-field class="col-11">
+                  <mat-label>Your invited guests</mat-label>
+                  <input matInput formControlName="participantList">
+                </mat-form-field>
+                <div class="col text-end">
+                  <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+                    <mat-icon>add</mat-icon>
+                  </button>
+                </div>
+              </div>
+              <div class="row">
+                <button type="submit" class="btn btn-primary">Create your Event</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

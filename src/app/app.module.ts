@@ -10,12 +10,23 @@ import { NavigationDialogComponent } from './navigation-dialog/navigation-dialog
 import { MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from "@angular/material/button";
 import {MatListModule} from "@angular/material/list";
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { PrivateEventComponent } from './private-event/private-event.component';
+import { PublicEventComponent } from './public-event/public-event.component';
+import { MyEventsComponent } from './my-events/my-events.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationMenuComponent,
-    NavigationDialogComponent
+    NavigationDialogComponent,
+    DashboardComponent,
+    PrivateEventComponent,
+    PublicEventComponent,
+    MyEventsComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +35,10 @@ import {MatListModule} from "@angular/material/list";
     MatIconModule,
     MatDialogModule,
     MatButtonModule,
-    MatListModule
+    MatListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

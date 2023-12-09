@@ -13,25 +13,11 @@ export class NavigationDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.activeSide = this.data.activeItem;
-    this.setActive(this.activeSide);
+    //this.setActive(this.activeSide);
   }
 
   onClose():void{
     this.dialogRef.close();
   }
 
-  setActive(activeItem : string){
-    try {
-      this.resetActiveItem();
-      const navItem = document.getElementById(activeItem)!;
-      navItem.classList.add("active");
-    }catch (exception){
-      console.log("No active item found");
-    }
-  }
-
-  resetActiveItem(){
-    const navItems = document.querySelectorAll(".nav-link");
-    Array.from(navItems, navItem => navItem.classList.remove('active'));
-  }
 }

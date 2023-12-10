@@ -1,4 +1,5 @@
 @import "src/styles/colors";
+@import "src/styles/font";
 
 .wrapper{margin:5vh}
 
@@ -6,7 +7,7 @@
   border: none;
   overflow:hidden;
   border-radius:20px;
-  min-height:60vh;
+  min-height: 80vh;
   box-shadow: 0 0 12px 0 rgba(0,0,0,0.2);
 
   @media (max-width: 768px) {
@@ -21,12 +22,34 @@
 .card-img-overlay{
   background: $contrast;
   background: linear-gradient(-45deg, $contrast-trans7 0%, $contrast 100%);
-  background-size: cover;
 }
 .card-title{
   text-align: center;
+  font-family: $text_font;
+  color: $text_dark_tertiary;
 }
 
 .subtitle{
   text-align: center;
+  font-family: $text_font;
+  color: $text_dark_tertiary;
+}
+
+.dialog-button{
+  background-color: $red-contrast;
+
+  &:hover{
+    background: $contrast;
+  }
+}
+
+.card-button{
+  margin: 8px;
+  color: $text_bright;
+  background-color: $red-contrast;
+
+  &:hover{
+    background: $contrast;
+    box-shadow: 0 0 10px 0 $black;
+  }
 }

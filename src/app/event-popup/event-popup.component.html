@@ -1,0 +1,32 @@
+<h1 mat-dialog-title class="dialog-header">{{this.data.name}}</h1>
+<div mat-dialog-content class="dialog-body">
+  <form class="row" [formGroup]="newItemForm">
+    <mat-form-field *ngIf="!data.isDate" class="col-9">
+      <mat-label>Add Participant</mat-label>
+      <input matInput class="input" placeholder="john.smith@example.com" formControlName="newItem" required>
+    </mat-form-field>
+    <mat-form-field *ngIf="data.isDate" class="col-9">
+      <mat-label>Add Date</mat-label>
+      <input matInput readonly class="input" formControlName="newItem" required [matDatepicker]="picker">
+      <mat-datepicker-toggle matSuffix class="datepicker-icon" [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <div class="col text-end">
+      <button mat-mini-fab class="dialog-button" aria-label="Date Selection Button" (click)="addParticipant()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </form>
+  <div class="col text-end">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let item of this.data.itemList">{{item}}</li>
+    </ul>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button class="close-button" (click)="submit()">Ok</button>
+  </div>
+</div>
+
+
+
+

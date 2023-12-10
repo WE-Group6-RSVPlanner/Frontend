@@ -1,4 +1,5 @@
 @import "src/styles/colors";
+@import "src/styles/font";
 
 .wrapper{margin:10vh}
 //post card styles
@@ -85,11 +86,11 @@
 }
 .event-heading{
   color: $text_dark_primary;
-  font-family: Roboto, sans-serif;
+  font-family: $header_font;
 }
 
 .event-description{
   color: $text_dark_secondary;
-  font-family: Kanit, sans-serif;
+  font-family: $text_font;
 }
 

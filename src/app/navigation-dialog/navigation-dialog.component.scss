@@ -1,5 +1,6 @@
 @import "src/styles/colors";
 @import "src/styles/animations";
+@import "src/styles/font";
 
 $button-margin: 15px;
 $list-item-margin: 15px;
@@ -34,7 +35,7 @@ $list-item-margin: 15px;
 
 .nav-link{
   color: $white;
-  font-family: Kanit, sans-serif;
+  font-family: $text_font;
 }
 
 .active {

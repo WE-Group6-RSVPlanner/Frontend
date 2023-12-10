@@ -1,9 +1,9 @@
 <section class="wrapper">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-sm-12 col-md-10 col-lg-10 mb-4">
-        <div class="card text-dark">
-          <img src="assets/img/private-event-bg.jpg" class="card-img" alt="private-event background image">
+      <div class="col-sm-12 col-md-10 col-lg-10 mb-2">
+        <div class="card text-dark" style="background-image:url('assets/img/private-event-bg.jpg');">
+          <img src="assets/img/private-event-bg.jpg" class="card-img d-none" alt="private-event background image">
           <div class="card-img-overlay">
             <h1 class="card-title">New Private Event</h1>
             <form [formGroup]="privateEventForm">
@@ -39,7 +39,7 @@
                   <input matInput formControlName="dateList">
                 </mat-form-field>
                 <div class="col text-end">
-                  <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+                  <button mat-mini-fab class="dialog-button" (click)="addDate()" aria-label="Date Selection Button">
                     <mat-icon>add</mat-icon>
                   </button>
                 </div>
@@ -50,13 +50,13 @@
                   <input matInput formControlName="participantList">
                 </mat-form-field>
                 <div class="col text-end">
-                  <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+                  <button mat-mini-fab class="dialog-button" (click)="addParticipants()" aria-label="People invitation Button">
                     <mat-icon>add</mat-icon>
                   </button>
                 </div>
               </div>
-              <div class="row">
-                <button type="submit" class="btn btn-primary">Create your Event</button>
+              <div class="row justify-content-center">
+                <button type="submit" class="btn card-button col-3">Create your Event</button>
               </div>
             </form>
           </div>

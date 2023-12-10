@@ -17,6 +17,9 @@ import { MyEventsComponent } from './my-events/my-events.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from '@angular/material/input';
+import { EventPopupComponent } from './event-popup/event-popup.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
 
 @NgModule({
   declarations: [
@@ -26,7 +29,8 @@ import {MatInputModule} from '@angular/material/input';
     DashboardComponent,
     PrivateEventComponent,
     PublicEventComponent,
-    MyEventsComponent
+    MyEventsComponent,
+    EventPopupComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +42,9 @@ import {MatInputModule} from '@angular/material/input';
     MatListModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

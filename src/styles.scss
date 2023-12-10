@@ -37,3 +37,26 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   justify-content: center;
 }
 
+//Input Dialog SCSS - Needs to be in root
+.input-dialog{
+}
+
+.input-dialog .mat-dialog-container{
+  border-radius: 20px;
+  background: $background-dark;
+  color: $text_bright;
+}
+
+
+::-webkit-scrollbar {
+  width: 4px;
+  overflow-y: scroll;
+  background: $background-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: $contrast;
+  border-radius: 10px;
+}

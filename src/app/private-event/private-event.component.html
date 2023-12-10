@@ -36,7 +36,7 @@
               <div class="row">
                 <mat-form-field class="col-11">
                   <mat-label>Possible dates for you event to choose from</mat-label>
-                  <input matInput formControlName="dateList">
+                  <input matInput formControlName="dateList" class="picker-list">
                 </mat-form-field>
                 <div class="col text-end">
                   <button mat-mini-fab class="dialog-button" (click)="addDate()" aria-label="Date Selection Button">
@@ -47,7 +47,7 @@
               <div class="row">
                 <mat-form-field class="col-11">
                   <mat-label>Your invited guests</mat-label>
-                  <input matInput formControlName="participantList">
+                  <input matInput formControlName="participantList" class="picker-list">
                 </mat-form-field>
                 <div class="col text-end">
                   <button mat-mini-fab class="dialog-button" (click)="addParticipants()" aria-label="People invitation Button">

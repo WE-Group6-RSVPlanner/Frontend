@@ -1,0 +1,59 @@
+@import "src/styles/colors";
+@import "src/styles/font";
+
+.wrapper{margin:5vh}
+
+.card{
+  border: none;
+  overflow:hidden;
+  border-radius:20px;
+  min-height: 80vh;
+  box-shadow: 0 0 12px 0 rgba(0,0,0,0.2);
+
+  @media (max-width: 768px) {
+    min-height:350px;
+  }
+
+  @media (max-width: 420px) {
+    min-height:300px;
+  }
+}
+
+.card-img-overlay{
+  background: $contrast;
+  background: linear-gradient(-45deg, $contrast-trans7 0%, $contrast 100%);
+}
+.card-title{
+  text-align: center;
+  font-family: $text_font;
+  color: $text_dark_tertiary;
+}
+
+.subtitle{
+  text-align: center;
+  font-family: $text_font;
+  color: $text_dark_tertiary;
+}
+
+.dialog-button{
+  background-color: $red-contrast;
+
+  &:hover{
+    background: $contrast;
+  }
+}
+
+.card-button{
+  margin: 8px;
+  color: $text_bright;
+  background-color: $red-contrast;
+
+  &:hover{
+    background: $contrast;
+    box-shadow: 0 0 10px 0 $black;
+  }
+}
+
+.picker-list{
+  color: $text_dark_secondary;
+}

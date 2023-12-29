@@ -3,6 +3,10 @@ import {FormBuilder, Validators} from "@angular/forms";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {EventPopupComponent} from "../event-popup/event-popup.component";
 import {filter} from "rxjs";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {PrivateEvent} from "../models/PrivateEvent";
+import {GenerateEventService} from "../services/generate-event.service";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -12,7 +16,13 @@ import {filter} from "rxjs";
 })
 export class PrivateEventComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder, public dialog:MatDialog) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    public dialog:MatDialog,
+    private snackBar:MatSnackBar,
+    private eventService:GenerateEventService,
+    private router:Router
+  ) { }
 
   public privateEventForm : any;
   public dateList : string[] = [];
@@ -56,5 +66,40 @@ export class PrivateEventComponent implements OnInit {
       this.participantList = itemList;
       this.privateEventForm.get('participantList').setValue(itemList);
     })
+  }
+
+  createEvent(){
+    if(this.privateEventForm.valid && this.dateValid() && this.participantsValid()){
+      let newEvent:PrivateEvent = {
+        email: this.privateEventForm.value.email,
+        eventDates: this.privateEventForm.value.dateList,
+        eventDescription: this.privateEventForm.value.description,
+        eventTitle: this.privateEventForm.value.title,
+        name: this.privateEventForm.value.name,
+        participants: this.privateEventForm.value.participantList
+      }
+      let returnCode = this.eventService.createPrivateEvent(newEvent);
+      console.log(returnCode);
+      this.snackBar.open("Your event was created successfully!", "Close")
+      this.router.navigate(["/"]);
+    }else{
+      this.snackBar.open("Please fill out the form!", "Close")
+    }
+  }
+
+  private dateValid() {
+    if(this.dateList.length == 0) {
+      this.snackBar.open("Please enter at least one date!", "Close")
+      return false;
+    }
+    return true;
+  }
+
+  private participantsValid() {
+    if(this.participantList.length == 0) {
+      this.snackBar.open("Are you sure, you wont invite someone?", "Close")
+      return false;
+    }
+    return true;
   }
 }

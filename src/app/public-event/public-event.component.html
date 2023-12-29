@@ -1,1 +1,68 @@
-<p>public-event works!</p>
+<section class="wrapper">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-10 col-lg-10 mb-2">
+        <div class="card text-dark" style="background-image:url('assets/img/private-event-bg.jpg');">
+          <img src="assets/img/private-event-bg.jpg" class="card-img d-none" alt="private-event background image">
+          <div class="card-img-overlay">
+            <h1 class="card-title">New Public Event</h1>
+            <form [formGroup]="publicEventForm">
+              <hr class="hr" />
+              <h2 class="subtitle"> Organizer</h2>
+              <div class="row">
+                <mat-form-field class="col-6">
+                  <mat-label>Enter your email</mat-label>
+                  <input matInput placeholder="john.smith@example.com" formControlName="email" required>
+                  <mat-error> Please enter you email address. </mat-error>
+                </mat-form-field>
+                <mat-form-field class="col-6">
+                  <mat-label>Enter your name</mat-label>
+                  <input matInput placeholder="John Smith" formControlName="name" required>
+                  <mat-error> Please enter your name. </mat-error>
+                </mat-form-field>
+              </div>
+              <hr class="hr" />
+              <h2 class="subtitle"> Event Data</h2>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>What Event are you planning?</mat-label>
+                  <input matInput placeholder="Super Duper Wedding" formControlName="title" required>
+                  <mat-error> Please enter a title for the event you like to organize. </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>Short description of your cool event</mat-label>
+                  <input matInput placeholder="Welcome to my super cool event" formControlName="description">
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>Additional description of the Location</mat-label>
+                  <input matInput placeholder="Location is a castle on the hill" formControlName="locationDescription">
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field class="col-6">
+                  <mat-label>Add Date</mat-label>
+                  <input matInput readonly class="input" formControlName="date" required [matDatepicker]="picker">
+                  <mat-datepicker-toggle matSuffix class="datepicker-icon" [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field class="col-6">
+                  <mat-label>Location</mat-label>
+                  <input matInput placeholder="You Event Location" formControlName="location">
+                </mat-form-field>
+              </div>
+              <div class="row justify-content-center">
+                <button (click)="createEvent()" class="btn card-button col-3">Create your Event</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+

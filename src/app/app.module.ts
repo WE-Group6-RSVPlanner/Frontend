@@ -20,6 +20,8 @@ import {MatInputModule} from '@angular/material/input';
 import { EventPopupComponent } from './event-popup/event-popup.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {ImagePopupComponent} from "./image-popup/image-popup.component";
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import {MatNativeDateModule} from "@angular/material/core";
     PrivateEventComponent,
     PublicEventComponent,
     MyEventsComponent,
-    EventPopupComponent
+    EventPopupComponent,
+    ImagePopupComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import {MatNativeDateModule} from "@angular/material/core";
     MatInputModule,
     ReactiveFormsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

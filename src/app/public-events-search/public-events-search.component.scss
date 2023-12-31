@@ -1,0 +1,10 @@
+@import "src/styles/event-card-style";
+
+.card{
+  overflow: auto !important;
+  min-height: 50vh !important;
+}
+
+.event-image{
+  width: 400px;
+}

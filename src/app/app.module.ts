@@ -15,13 +15,15 @@ import { PrivateEventComponent } from './private-event/private-event.component';
 import { PublicEventComponent } from './public-event/public-event.component';
 import { MyEventsComponent } from './my-events/my-events.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from '@angular/material/input';
 import { EventPopupComponent } from './event-popup/event-popup.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {ImagePopupComponent} from "./image-popup/image-popup.component";
+import { PublicEventsSearchComponent } from './public-events-search/public-events-search.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import {ImagePopupComponent} from "./image-popup/image-popup.component";
     PublicEventComponent,
     MyEventsComponent,
     EventPopupComponent,
-    ImagePopupComponent
+    ImagePopupComponent,
+    PublicEventsSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,9 @@ import {ImagePopupComponent} from "./image-popup/image-popup.component";
     ReactiveFormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatToolbarModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

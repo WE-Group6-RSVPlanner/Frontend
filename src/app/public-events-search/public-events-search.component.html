@@ -1,0 +1,52 @@
+<section class="wrapper">
+  <div class="container">
+    <div class="row justify-content-center pb-4" *ngFor="let event of events">
+      <div class="col-sm-12 col-md-10 col-lg-10 mb-2">
+        <div class="card text-dark" style="background-image:url('assets/img/private-event-bg.jpg');">
+          <img src="assets/img/private-event-bg.jpg" class="card-img d-none" alt="private-event background image">
+          <div class="card-img-overlay">
+            <h1 class="card-title">{{event.eventTitle}}</h1>
+            <div class="row">
+              <div class="col-6">
+                <mat-list>
+                  <div mat-subheader>Description</div>
+                  <mat-list-item>
+                    <mat-icon matListItemIcon>account_circle</mat-icon>
+                    <div matListItemTitle>Organiser: </div>
+                    <div matListItemLine>{{event.name}}</div>
+                  </mat-list-item>
+                  <mat-list-item *ngIf="event.eventDescription != ''">
+                    <mat-icon matListItemIcon>description</mat-icon>
+                    <div matListItemTitle>Waiting for you: </div>
+                    <div matListItemLine>{{event.eventDescription}}</div>
+                  </mat-list-item>
+                  <mat-list-item *ngIf="event.locationDescription != ''">
+                    <mat-icon matListItemIcon>castle</mat-icon>
+                    <div matListItemTitle>Where to party: </div>
+                    <div matListItemLine>{{event.locationDescription}}</div>
+                  </mat-list-item>
+                  <mat-divider></mat-divider>
+                  <div mat-subheader>Details</div>
+                  <mat-list-item>
+                    <mat-icon matListItemIcon>schedule</mat-icon>
+                    <div matListItemTitle>{{event.eventDate}}</div>
+                  </mat-list-item>
+                  <mat-list-item>
+                    <mat-icon matListItemIcon>location_on</mat-icon>
+                    <div matListItemTitle>{{event.eventLocation}}</div>
+                  </mat-list-item>
+                </mat-list>
+              </div>
+              <div class="col">
+                <img class="event-image" src="assets/img/private-event-bg_v2.jpg" alt="event-image">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+

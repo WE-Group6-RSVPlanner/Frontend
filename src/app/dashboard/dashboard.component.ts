@@ -10,6 +10,8 @@ export class DashboardComponent implements OnInit {
 
   constructor(private router : Router) { }
 
+  public searchText = "";
+
   ngOnInit(): void {
   }
 
@@ -17,4 +19,7 @@ export class DashboardComponent implements OnInit {
     this.router.navigateByUrl(route);
   }
 
+  searchEvents() {
+    this.router.navigate(['/search-events'], {queryParams: {search:'test'}});
+  }
 }

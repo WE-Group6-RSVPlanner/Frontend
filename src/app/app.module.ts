@@ -24,6 +24,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {ImagePopupComponent} from "./image-popup/image-popup.component";
 import { PublicEventsSearchComponent } from './public-events-search/public-events-search.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
+import { SignupPopupComponent } from './signup-popup/signup-popup.component';
+import {MatTooltipModule} from "@angular/material/tooltip";
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -36,25 +39,28 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     MyEventsComponent,
     EventPopupComponent,
     ImagePopupComponent,
-    PublicEventsSearchComponent
+    PublicEventsSearchComponent,
+    SignupPopupComponent,
+    SearchBarComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatIconModule,
-    MatDialogModule,
-    MatButtonModule,
-    MatListModule,
-    MatFormFieldModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatSnackBarModule,
-    MatToolbarModule,
-    FormsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatIconModule,
+        MatDialogModule,
+        MatButtonModule,
+        MatListModule,
+        MatFormFieldModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatSnackBarModule,
+        MatToolbarModule,
+        FormsModule,
+        MatTooltipModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

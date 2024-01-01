@@ -20,11 +20,6 @@
     min-height:300px;
   }
 
-  &.search-bar{
-    min-height: 100px !important;
-    max-height: 300px;
-  }
-
   &.card-has-bg{
     transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
     background-size:120%;
@@ -97,21 +92,5 @@
 .event-description{
   color: $text_dark_secondary;
   font-family: $text_font;
-}
-
-.search-container{
-  min-height: 70px;
-}
-
-.search-button{
-  min-width: 70px;
-}
-
-.search-text{
-  font-size: xx-large;
-}
-
-.search-icon{
-  transform: scale(2);
 }
 

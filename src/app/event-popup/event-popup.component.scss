@@ -1,26 +1,5 @@
 @import "src/styles/colors";
-
-.wrapper{
-  padding: 5px;
-}
-
-.dialog-header{
-  text-align: center;
-}
-
-.close-button, .dialog-button{
-  background-color: $red-contrast;
-
-  &:hover{
-    background: $contrast;
-  }
-}
-
-.dialog-body{
-  min-height: 30vh;
-  min-width: 35vw;
-  overflow: auto;
-}
+@import "src/styles/popup-card";
 
 .list-group{
   margin-bottom: 15px;
@@ -31,14 +10,6 @@
   border-color: $contrast;
   background: $background_less_dark;
   color: $contrast;
-}
-
-.input{
-  color: $text_bright;
-
-  &::placeholder{
-    color: $text_secondary;
-  }
 }
 
 .datepicker-icon{

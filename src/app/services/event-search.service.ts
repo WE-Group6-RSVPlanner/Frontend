@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {PublicEvent} from "../models/PublicEvent";
+import {PublicEventSignUp} from "../models/PublicEventSignUp";
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +21,10 @@ export class EventSearchService {
       name: "John Smith"
     }
     return [testEvent];
+  }
+
+  signUpEvent(publicEventSignUp : PublicEventSignUp){
+    console.log("Signed Up: " + publicEventSignUp.name);
+    return 200;
   }
 }

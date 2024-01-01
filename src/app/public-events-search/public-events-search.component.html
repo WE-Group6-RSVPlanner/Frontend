@@ -1,6 +1,16 @@
 <section class="wrapper">
   <div class="container">
+    <div class="row pb-5 search-scale">
+      <app-search-bar></app-search-bar>
+    </div>
     <div class="row justify-content-center pb-4" *ngFor="let event of events">
+      <div class="signup-outer-container">
+        <div class="signup-container">
+          <button mat-fab class="card-button" matTooltip="SignUp" (click)="signUp(event)" aria-label="SignUp to the public event">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+      </div>
       <div class="col-sm-12 col-md-10 col-lg-10 mb-2">
         <div class="card text-dark" style="background-image:url('assets/img/private-event-bg.jpg');">
           <img src="assets/img/private-event-bg.jpg" class="card-img d-none" alt="private-event background image">
@@ -9,23 +19,23 @@
             <div class="row">
               <div class="col-6">
                 <mat-list>
-                  <div mat-subheader>Description</div>
+                  <div mat-subheader class="text-center">Description</div>
                   <mat-list-item>
                     <mat-icon matListItemIcon>account_circle</mat-icon>
-                    <div matListItemTitle>Organiser: </div>
+                    <div matListItemTitle>Organiser</div>
                     <div matListItemLine>{{event.name}}</div>
                   </mat-list-item>
                   <mat-list-item *ngIf="event.eventDescription != ''">
                     <mat-icon matListItemIcon>description</mat-icon>
-                    <div matListItemTitle>Waiting for you: </div>
+                    <div matListItemTitle>Waiting for you</div>
                     <div matListItemLine>{{event.eventDescription}}</div>
                   </mat-list-item>
                   <mat-list-item *ngIf="event.locationDescription != ''">
                     <mat-icon matListItemIcon>castle</mat-icon>
-                    <div matListItemTitle>Where to party: </div>
+                    <div matListItemTitle>Where to party</div>
                     <div matListItemLine>{{event.locationDescription}}</div>
                   </mat-list-item>
-                  <mat-divider></mat-divider>
+                  <mat-divider class="m-2"></mat-divider>
                   <div mat-subheader>Details</div>
                   <mat-list-item>
                     <mat-icon matListItemIcon>schedule</mat-icon>
@@ -37,7 +47,7 @@
                   </mat-list-item>
                 </mat-list>
               </div>
-              <div class="col">
+              <div class="col pt-4">
                 <img class="event-image" src="assets/img/private-event-bg_v2.jpg" alt="event-image">
               </div>
             </div>

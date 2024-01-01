@@ -18,8 +18,4 @@ export class DashboardComponent implements OnInit {
   navigateTo(route:string){
     this.router.navigateByUrl(route);
   }
-
-  searchEvents() {
-    this.router.navigate(['/search-events'], {queryParams: {search:'test'}});
-  }
 }

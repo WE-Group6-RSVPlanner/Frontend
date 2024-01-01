@@ -17,6 +17,11 @@
   @media (max-width: 420px) {
     min-height:300px;
   }
+
+  &.search-bar{
+    min-height: 100px !important;
+    max-height: 300px;
+  }
 }
 
 .card-img-overlay{

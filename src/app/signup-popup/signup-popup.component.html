@@ -1,0 +1,18 @@
+<h1 mat-dialog-title class="dialog-header">Event SignUp</h1>
+<div mat-dialog-content class="dialog-body">
+  <form class="row" [formGroup]="signUpForm">
+    <mat-form-field class="row">
+      <mat-label>Name</mat-label>
+      <input matInput class="input" placeholder="John Smith" formControlName="name" required>
+    </mat-form-field>
+    <mat-form-field class="row">
+      <mat-label>EMail</mat-label>
+      <input matInput class="input" placeholder="john.smith@example.com" formControlName="email" required>
+    </mat-form-field>
+  </form>
+
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close class="close-button">Cancel</button>
+    <button mat-button class="close-button" (click)="submit()">Ok</button>
+  </div>
+</div>

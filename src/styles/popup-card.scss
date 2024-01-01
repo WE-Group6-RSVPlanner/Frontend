@@ -1,0 +1,32 @@
+@import "src/styles/colors";
+
+.wrapper{
+  padding: 5px;
+}
+
+.dialog-header{
+  text-align: center;
+}
+
+.close-button, .dialog-button{
+  background-color: $red-contrast;
+
+  &:hover{
+    background: $contrast;
+  }
+}
+
+.dialog-body{
+  min-height: 30vh;
+  min-width: 35vw;
+  overflow: auto;
+}
+
+.input{
+  color: $text_bright;
+
+  &::placeholder{
+    color: $text_secondary;
+  }
+}
+

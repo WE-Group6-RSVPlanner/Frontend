@@ -1,10 +1,52 @@
 @import "src/styles/event-card-style";
+@import "src/styles/colors";
 
 .card{
   overflow: auto !important;
-  min-height: 50vh !important;
+  min-height: 60vh !important;
 }
 
 .event-image{
   width: 400px;
+}
+
+div[mat-subheader]{
+  justify-content: center;
+  color: $text_dark_secondary;
+}
+
+div[matListItemTitle]{
+  color: black;
+  font-weight: bold;
+  padding: 0 8px 0 10px;
+  text-align: left;
+}
+
+h1{
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.signup-outer-container{
+  position: relative;
+  display: flex;
+  z-index: 1000;
+}
+
+.signup-container{
+  position: absolute;
+  left: 87%;
+  top: 15px;
+  transform: translate(-50%, 0%);
+}
+
+.card-button{
+  mat-icon{
+    transform: scale(1.5);
+    animation: zoom-in-zoom-out 800ms ease;
+  }
+}
+
+.search-scale{
+  transform: scale(0.7);
 }

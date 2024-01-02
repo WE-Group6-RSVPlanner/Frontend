@@ -14,3 +14,15 @@
   from{right: 0; opacity: 1}
   to{right: -100vw; opacity: 0}
 }
+
+@keyframes smaller-zoom {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(0.5, 0.5);
+  }
+  100% {
+    transform: scale(0.7, 0.7);
+  }
+}

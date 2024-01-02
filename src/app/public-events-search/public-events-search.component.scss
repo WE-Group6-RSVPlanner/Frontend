@@ -1,9 +1,10 @@
 @import "src/styles/event-card-style";
 @import "src/styles/colors";
+@import "src/styles/animations";
 
 .card{
   overflow: auto !important;
-  min-height: 60vh !important;
+  min-height: 50vh !important;
 }
 
 .event-image{
@@ -48,5 +49,6 @@ h1{
 }
 
 .search-scale{
+  animation: smaller-zoom 1000ms ease;
   transform: scale(0.7);
 }

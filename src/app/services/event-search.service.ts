@@ -10,6 +10,7 @@ export class EventSearchService {
   constructor() { }
 
   searchEvents(searchParam : string) : PublicEvent[]{
+    //TODO: Send request to backend and return all events
     console.log(searchParam);
     const testEvent : PublicEvent = {
       email: "test@gmail.com",

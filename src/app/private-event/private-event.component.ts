@@ -78,6 +78,7 @@ export class PrivateEventComponent implements OnInit {
         name: this.privateEventForm.value.name,
         participants: this.privateEventForm.value.participantList
       }
+      //TODO: handle return of service
       let returnCode = this.eventService.createPrivateEvent(newEvent);
       console.log(returnCode);
       this.snackBar.open("Your event was created successfully!", "Close")

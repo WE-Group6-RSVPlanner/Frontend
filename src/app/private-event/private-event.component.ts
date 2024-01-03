@@ -72,17 +72,23 @@ export class PrivateEventComponent implements OnInit {
     if(this.privateEventForm.valid && this.dateValid() && this.participantsValid()){
       let newEvent:PrivateEvent = {
         email: this.privateEventForm.value.email,
-        eventDates: this.privateEventForm.value.dateList,
+        eventDates: this.privateEventForm.get('dateList').value.map(this.formatDate),
         eventDescription: this.privateEventForm.value.description,
         eventTitle: this.privateEventForm.value.title,
         name: this.privateEventForm.value.name,
-        participants: this.privateEventForm.value.participantList
+        participants: this.privateEventForm.get('participantList').value
       }
-      //TODO: handle return of service
-      let returnCode = this.eventService.createPrivateEvent(newEvent);
-      console.log(returnCode);
-      this.snackBar.open("Your event was created successfully!", "Close")
+
+      this.eventService.createPrivateEvent(newEvent)
+          .subscribe(response => {
+            console.log(response);
+            this.snackBar.open("Your event was created successfully!", "Close")
+          }, error => {
+            console.log("ERROR:" + error);
+            this.snackBar.open("Ooops, something went wrong!", "Close")
+          })
       this.router.navigate(["/"]);
+
     }else{
       this.snackBar.open("Please fill out the form!", "Close")
     }
@@ -102,5 +108,10 @@ export class PrivateEventComponent implements OnInit {
       return false;
     }
     return true;
+  }
+
+  private formatDate(rawDate: String) {
+    const partsDate = rawDate.split(".");
+    return `${partsDate[2]}-${partsDate[1]}-${partsDate[0]}`;
   }
 }

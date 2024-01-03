@@ -27,7 +27,23 @@ export class PublicEventsSearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.searchValue = this.route.snapshot.queryParamMap.get("search") || "";
-    this.events = this.searchService.searchEvents(this.searchValue);
+
+    this.searchService.searchEvents(this.searchValue)
+        .subscribe(data => {
+          this.events = data.map((event: any) => ({
+            email: event.organizer.email,
+            name: event.organizer.name,
+            eventTitle: event.title,
+            eventDescription: event.description,
+            eventDate: event.date_times[0].start_time.split("T")[0],
+            eventLocation: event.location,
+            locationDescription: ""
+          }))
+          console.log(this.events);
+        }, error => {
+          console.log("ERROR: "+ error.status)
+          console.log(error.message)
+        })
   }
 
   signUp(event:PublicEvent){

@@ -5,9 +5,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .page-container{
   background-color: $background-dark;
-  position: fixed;
+  position: absolute;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 //Navigation Dialog SCSS - Needs to be in root

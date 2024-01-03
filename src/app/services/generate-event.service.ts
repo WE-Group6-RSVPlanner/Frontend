@@ -35,8 +35,24 @@ export class GenerateEventService {
     return this.http.post(this.url, requestBody);
   }
 
-  createPublicEvent(eventData : PublicEvent){
-    console.log("public event created");
-    return 200;
+  createPublicEvent(eventData: PublicEvent): Observable<any> {
+    console.log("creating public event ...");
+
+    const requestBody = {
+      title: eventData.eventTitle,
+      description: eventData.eventDescription,
+      possible_date_times: [{
+        start_time: eventData.eventDate + "T00:00:00Z",
+        end_time: eventData.eventDate + "T00:00:00Z"
+      }],
+      location: eventData.eventLocation,
+      event_type: "PUBLIC",
+      organizer: {
+        name: eventData.name,
+        email: eventData.email
+      }
+    }
+
+    return this.http.post(this.url, requestBody);
   }
 }

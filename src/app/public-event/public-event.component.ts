@@ -39,22 +39,36 @@ export class PublicEventComponent implements OnInit {
     if(this.publicEventForm.valid){
       let newEvent:PublicEvent = {
         email: this.publicEventForm.value.email,
-        eventDate: this.publicEventForm.value.date,
+        eventDate: this.formatDate(this.publicEventForm.value.date),
         eventDescription: this.publicEventForm.value.description,
         eventLocation: this.publicEventForm.value.location,
         eventTitle: this.publicEventForm.value.title,
         locationDescription: this.publicEventForm.value.locationDescription,
         name: this.publicEventForm.value.name
-
       }
-      let returnCode = this.eventService.createPublicEvent(newEvent);
-      console.log(returnCode);
-      this.snackBar.open("Your event was created successfully!", "Close")
+
+      this.eventService.createPublicEvent(newEvent)
+          .subscribe(response => {
+            console.log(response);
+            this.snackBar.open("Your event was created successfully!", "Close")
+          }, error => {
+            console.log("ERROR:" + error);
+            this.snackBar.open("Ooops, something went wrong!", "Close")
+          })
       this.router.navigate(["/"]);
+
     }else{
       this.snackBar.open("Please fill out the form!", "Close")
     }
   }
 
+  private formatDate(rawDate: string) {
+    const convertedRawDate = new Date(rawDate);
 
+    const year = convertedRawDate.getFullYear();
+    const month = ('0' + (convertedRawDate.getMonth() + 1)).slice(-2);
+    const day = ('0' + convertedRawDate.getDate()).slice(-2);
+
+    return `${year}-${month}-${day}`;
+  }
 }

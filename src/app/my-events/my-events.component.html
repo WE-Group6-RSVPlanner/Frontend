@@ -1,1 +1,26 @@
-<p>my-events works!</p>
+<section class="wrapper">
+  <div class="container">
+    <app-user-login *ngIf="!userService.isLoggedIn()"></app-user-login>
+    <div *ngIf="userService.isLoggedIn()" class="event-container">
+      <div fxFlex class="row justify-content-center pb-4" *ngFor="let event of publicEvents">
+        <div class="signup-outer-container">
+          <div class="signup-container">
+            <button mat-fab class="card-button" matTooltip="Sign Out" (click)="signOut(event)" aria-label="SignOut from public event">
+              <mat-icon>remove</mat-icon>
+            </button>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-10 col-lg-10 mb-2">
+          <app-public-event-container [event]="event"></app-public-event-container>
+        </div>
+      </div>
+      <div fxFlex class="row justify-content-center pb-4" *ngFor="let event of privateEvents">
+        <div class="col-sm-12 col-md-10 col-lg-10 mb-2">
+          <app-private-event-container [event]="event"></app-private-event-container>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+

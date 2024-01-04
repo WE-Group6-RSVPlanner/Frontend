@@ -28,6 +28,10 @@ import { SignupPopupComponent } from './signup-popup/signup-popup.component';
 import {MatTooltipModule} from "@angular/material/tooltip";
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import {HttpClientModule} from "@angular/common/http";
+import { UserLoginComponent } from './user-login/user-login.component';
+import {MatCardModule} from "@angular/material/card";
+import { PublicEventContainerComponent } from './public-event-container/public-event-container.component';
+import { PrivateEventContainerComponent } from './private-event-container/private-event-container.component';
 
 @NgModule({
   declarations: [
@@ -42,27 +46,31 @@ import {HttpClientModule} from "@angular/common/http";
     ImagePopupComponent,
     PublicEventsSearchComponent,
     SignupPopupComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    UserLoginComponent,
+    PublicEventContainerComponent,
+    PrivateEventContainerComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatIconModule,
-        MatDialogModule,
-        MatButtonModule,
-        MatListModule,
-        MatFormFieldModule,
-        MatInputModule,
-        ReactiveFormsModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatSnackBarModule,
-        MatToolbarModule,
-        FormsModule,
-        MatTooltipModule,
-        HttpClientModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSnackBarModule,
+    MatToolbarModule,
+    FormsModule,
+    MatTooltipModule,
+    HttpClientModule,
+    MatCardModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

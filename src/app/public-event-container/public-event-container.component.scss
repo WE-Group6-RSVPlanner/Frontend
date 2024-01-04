@@ -1,0 +1,30 @@
+@import "src/styles/event-card-style";
+@import "src/styles/colors";
+@import "src/styles/animations";
+
+.card{
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  min-height: 50vh !important;
+}
+
+.event-image{
+  width: 400px;
+}
+
+div[mat-subheader]{
+  justify-content: center;
+  color: $text_dark_secondary;
+}
+
+div[matListItemTitle]{
+  color: black;
+  font-weight: bold;
+  padding: 0 8px 0 10px;
+  text-align: left;
+}
+
+h1{
+  font-size: 30px;
+  font-weight: bold;
+}

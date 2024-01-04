@@ -1,0 +1,42 @@
+<div class="card text-dark" style="background-image:url('assets/img/private-event-bg.jpg');">
+  <img src="assets/img/private-event-bg.jpg" class="card-img d-none" alt="private-event background image">
+  <div class="card-img-overlay">
+    <h1 class="card-title">{{event.eventTitle}}</h1>
+    <div class="row">
+      <div class="col-6">
+        <mat-list>
+          <div mat-subheader class="text-center">Description</div>
+          <mat-list-item>
+            <mat-icon matListItemIcon>account_circle</mat-icon>
+            <div matListItemTitle>Organiser</div>
+            <div matListItemLine>{{event.name}}</div>
+          </mat-list-item>
+          <mat-list-item *ngIf="event.eventDescription != ''">
+            <mat-icon matListItemIcon>description</mat-icon>
+            <div matListItemTitle>Expecting</div>
+            <div matListItemLine>{{event.eventDescription}}</div>
+          </mat-list-item>
+          <mat-divider class="m-2"></mat-divider>
+          <div mat-subheader>Participants</div>
+        </mat-list>
+        <div class="row">
+          <div *ngFor="let participant of event.participants" class=" col text-center">
+            <mat-icon matListItemIcon>person</mat-icon>
+            <div matListItemTitle class="text-center">{{ participant }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="col mr-3">
+        <div class="row calender-container">
+          <button id="{{date}}" *ngFor="let date of event.eventDates" type="button" class="btn-image m-2" (click)="selectDate(date)">
+            <p class="btn-text">{{date}}</p>
+          </button>
+        </div>
+        <div class="row submit-calender-button-container">
+          <button mat-raised-button class="submit-calender-button" (click)="submitPossibleDates()">Submit Dates</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

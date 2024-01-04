@@ -1,9 +1,9 @@
 <section class="wrapper">
-  <div fxLayout="column" class="container">
+  <div class="container">
     <div class="row pb-5 search-scale">
       <app-search-bar></app-search-bar>
     </div>
-    <div fxFlex class="row justify-content-center pb-4" *ngFor="let event of events">
+    <div class="row justify-content-center pb-4" *ngFor="let event of events">
       <div class="signup-outer-container">
         <div class="signup-container">
           <button mat-fab class="card-button" matTooltip="SignUp" (click)="signUp(event)" aria-label="SignUp to the public event">
@@ -12,51 +12,7 @@
         </div>
       </div>
       <div class="col-sm-12 col-md-10 col-lg-10 mb-2">
-        <div class="card text-dark" style="background-image:url('assets/img/private-event-bg.jpg');">
-          <img src="assets/img/private-event-bg.jpg" class="card-img d-none" alt="private-event background image">
-          <div class="card-img-overlay">
-            <h1 class="card-title">{{event.eventTitle}}</h1>
-            <div class="row">
-              <div class="col-6">
-                <mat-list>
-                  <div mat-subheader class="text-center">Description</div>
-                  <mat-list-item>
-                    <mat-icon matListItemIcon>account_circle</mat-icon>
-                    <div matListItemTitle>Organiser</div>
-                    <div matListItemLine>{{event.name}}</div>
-                  </mat-list-item>
-                  <mat-list-item *ngIf="event.eventDescription != ''">
-                    <mat-icon matListItemIcon>description</mat-icon>
-                    <div matListItemTitle>Expecting</div>
-                    <div matListItemLine>{{event.eventDescription}}</div>
-                  </mat-list-item>
-                  <mat-list-item *ngIf="event.locationDescription != ''">
-                    <mat-icon matListItemIcon>castle</mat-icon>
-                    <div matListItemTitle>Where to party</div>
-                    <div matListItemLine>{{event.locationDescription}}</div>
-                  </mat-list-item>
-                  <mat-divider class="m-2"></mat-divider>
-                  <div mat-subheader>Details</div>
-                  <mat-list-item>
-                    <mat-icon matListItemIcon>schedule</mat-icon>
-                    <div matListItemTitle>{{event.eventDate}}</div>
-                  </mat-list-item>
-                  <mat-list-item>
-                    <mat-icon matListItemIcon>location_on</mat-icon>
-                    <div matListItemTitle>{{event.eventLocation}}</div>
-                  </mat-list-item>
-                  <mat-list-item>
-                    <mat-icon matListItemIcon>groups</mat-icon>
-                    <div matListItemTitle>{{event.participants}}</div>
-                  </mat-list-item>
-                </mat-list>
-              </div>
-              <div class="col pt-4">
-                <img class="event-image" src="assets/img/private-event-bg_v2.jpg" alt="event-image">
-              </div>
-            </div>
-          </div>
-        </div>
+        <app-public-event-container [event]="event"></app-public-event-container>
       </div>
     </div>
   </div>

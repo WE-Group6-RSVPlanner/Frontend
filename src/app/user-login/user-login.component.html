@@ -1,0 +1,16 @@
+<div class="login-wrapper fadeInDown">
+  <div id="formContent">
+    <div class="fadeIn first">
+      <img src="assets/img/user-icon.svg" id="icon" alt="User Icon" />
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+      <input type="text" id="login" class="fadeIn second" placeholder="john.smith@example.com" formControlName="email" required>
+      <p *ngIf="error" class="error-text">*Please add a valid email!</p>
+      <input type="submit" class="fadeIn third" value="Log In">
+    </form>
+    <div id="formFooter">
+      <a class="underlineHover" href="/">Create an event first?</a>
+    </div>
+  </div>
+</div>
+

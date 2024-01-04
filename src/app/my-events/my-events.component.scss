@@ -1,0 +1,14 @@
+@import "src/styles/event-card-style";
+
+.signup-outer-container{
+  position: relative;
+  display: flex;
+  z-index: 100;
+}
+
+.signup-container{
+  position: absolute;
+  left: 87%;
+  top: 15px;
+  transform: translate(-50%, 0%);
+}

@@ -1,0 +1,79 @@
+@import "src/styles/event-card-style";
+@import "src/styles/colors";
+@import "src/styles/animations";
+
+.card{
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  min-height: 50vh !important;
+}
+
+.event-image{
+  width: 400px;
+}
+
+div[mat-subheader]{
+  justify-content: center;
+  color: $text_dark_secondary;
+}
+
+div[matListItemTitle]{
+  color: black;
+  font-weight: bold;
+  padding: 0 8px 0 10px;
+  text-align: left;
+}
+
+h1{
+  font-size: 30px;
+  font-weight: bold;
+}
+
+mat-divider{
+  height: 100%;
+  color: green;
+}
+
+.btn-image{
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  border: none;
+  background-image: url('../../assets/img/CalenderIcon.svg');
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.clicked{
+  background-image: url('../../assets/img/CalenderIcon_clicked.svg') !important;
+}
+
+.btn-text{
+  color: $black;
+  font-weight: bold;
+  font-size: larger;
+  margin: 5px 0 0 0;
+}
+
+.calender-container{
+  margin-right: 10px;
+}
+
+.submit-calender-button-container{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.submit-calender-button{
+  max-width: 50%;
+  justify-self: center;
+  color: $text_bright;
+  background-color: $red-contrast;
+
+  &:hover{
+    background: $contrast;
+    box-shadow: 0 0 10px 0 $black;
+  }
+}

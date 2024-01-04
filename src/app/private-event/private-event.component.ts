@@ -85,8 +85,9 @@ export class PrivateEventComponent implements OnInit {
             console.log(response);
             this.snackBar.open("Your event was created successfully!", "Close")
           }, error => {
-            console.log("ERROR CODE: " + error.status)
             console.log(error.message)
+            console.log("ERROR CODE: " + error.status)
+            console.log(error)
             this.snackBar.open("Ooops, something went wrong!", "Close")
           })
       this.router.navigate(["/"]);

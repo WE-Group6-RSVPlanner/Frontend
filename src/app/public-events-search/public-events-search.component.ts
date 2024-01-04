@@ -52,8 +52,9 @@ export class PublicEventsSearchComponent implements OnInit {
         }))
         console.log(this.events);
       }, error => {
+        console.log(error.error.error)
         console.log("ERROR CODE: " + error.status)
-        console.log(error.message)
+        console.log(error)
         this.events = [];
       })
   }

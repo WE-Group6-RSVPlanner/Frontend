@@ -44,7 +44,8 @@ export class PublicEventComponent implements OnInit {
         eventLocation: this.publicEventForm.value.location,
         eventTitle: this.publicEventForm.value.title,
         locationDescription: this.publicEventForm.value.locationDescription,
-        name: this.publicEventForm.value.name
+        name: this.publicEventForm.value.name,
+        participants: 1
       }
 
       this.eventService.createPublicEvent(newEvent)

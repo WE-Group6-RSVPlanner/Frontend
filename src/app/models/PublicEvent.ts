@@ -5,5 +5,6 @@ export interface PublicEvent{
   eventDescription:string,
   eventDate:string,
   eventLocation:string,
-  locationDescription:string
+  locationDescription:string,
+  participants:number
 }

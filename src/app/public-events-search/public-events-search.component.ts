@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, convertToParamMap} from "@angular/router";
 import {EventSearchService} from "../services/event-search.service";
 import {PublicEvent} from "../models/PublicEvent";
 import {filter} from "rxjs";
@@ -19,31 +19,42 @@ export class PublicEventsSearchComponent implements OnInit {
               private searchService : EventSearchService,
               private dialog:MatDialog,
               private snackBar:MatSnackBar
-  ) { }
+  ) {
+    route.queryParams.subscribe(params => {
+      console.log(params);
+      let searchValue = convertToParamMap(params).get("search") || "";
+      this.loadSearchData(searchValue);
+    })
+  }
 
-  private searchValue = "";
   public events : PublicEvent[] = [];
   private dialogRef: MatDialogRef<SignupPopupComponent> | undefined;
 
   ngOnInit(): void {
-    this.searchValue = this.route.snapshot.queryParamMap.get("search") || "";
+    let searchValue = this.route.snapshot.queryParamMap.get("search") || "";
+    this.loadSearchData(searchValue);
+  }
 
-    this.searchService.searchEvents(this.searchValue)
-        .subscribe(data => {
-          this.events = data.map((event: any) => ({
-            email: event.organizer.email,
-            name: event.organizer.name,
-            eventTitle: event.title,
-            eventDescription: event.description,
-            eventDate: event.date_times[0].start_time.split("T")[0],
-            eventLocation: event.location,
-            locationDescription: ""
-          }))
-          console.log(this.events);
-        }, error => {
-          console.log("ERROR CODE: " + error.status)
-          console.log(error.message)
-        })
+  loadSearchData(params : string){
+    this.searchService.searchEvents(params)
+      .subscribe(data => {
+        console.log(data);
+        this.events = data.map((event: any) => ({
+          email: event.organizer.email,
+          name: event.organizer.name,
+          eventTitle: event.title,
+          eventDescription: event.description,
+          eventDate: event.date_times[0].start_time.split("T")[0],
+          eventLocation: event.location,
+          locationDescription: "",
+          participants: event.attendees_count
+        }))
+        console.log(this.events);
+      }, error => {
+        console.log("ERROR CODE: " + error.status)
+        console.log(error.message)
+        this.events = [];
+      })
   }
 
   signUp(event:PublicEvent){

@@ -1,27 +1,30 @@
-<div class="close-button">
-  <button mat-icon-button (click)="onClose()">
-    <mat-icon>close</mat-icon>
-  </button>
-</div>
-<div class="animation-container">
-  <div class="container nav-menu-container">
-    <img mat-dialog-title alt="RSVPlanner Logo" src="../../assets/img/logo-no-background.png" class="menu-logo">
-    <ul class="nav-list">
-      <li class="nav-list-item">
-        <a class="nav-link" routerLink="" routerLinkActive="active-button" [routerLinkActiveOptions]="{ exact: true }" (click)="onClose()">HOME</a>
-      </li>
-      <li class="nav-list-item">
-        <a class="nav-link" routerLink="/public-events" routerLinkActive="active-button" (click)="onClose()">PUBLIC EVENT</a>
-      </li>
-      <li class="nav-list-item">
-        <a class="nav-link" routerLink="/private-events" routerLinkActive="active-button" (click)="onClose()">PRIVATE EVENT</a>
-      </li>
-      <li class="nav-list-item">
-        <a class="nav-link" routerLink="/my-events" routerLinkActive="active-button" (click)="onClose()">MY EVENTS</a>
-      </li>
-    </ul>
+<div class="index-div">
+  <div class="close-button">
+    <button mat-icon-button (click)="onClose()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div class="animation-container">
+    <div class="container nav-menu-container">
+      <img mat-dialog-title alt="RSVPlanner Logo" src="/assets/img/logo-no-background.png" class="menu-logo">
+      <ul class="nav-list">
+        <li class="nav-list-item">
+          <a class="nav-link" routerLink="" routerLinkActive="active-button" [routerLinkActiveOptions]="{ exact: true }" (click)="onClose()">HOME</a>
+        </li>
+        <li class="nav-list-item">
+          <a class="nav-link" routerLink="/public-events" routerLinkActive="active-button" (click)="onClose()">PUBLIC EVENT</a>
+        </li>
+        <li class="nav-list-item">
+          <a class="nav-link" routerLink="/private-events" routerLinkActive="active-button" (click)="onClose()">PRIVATE EVENT</a>
+        </li>
+        <li class="nav-list-item">
+          <a class="nav-link" routerLink="/my-events" routerLinkActive="active-button" (click)="onClose()">MY EVENTS</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
+
 
 
 

@@ -1,27 +1,27 @@
 import { Injectable } from '@angular/core';
 import {PublicEvent} from "../models/PublicEvent";
 import {PublicEventSignUp} from "../models/PublicEventSignUp";
+import {HttpClient, HttpParams} from "@angular/common/http";
+import {hostUrl} from "../../environments/environment";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventSearchService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  searchEvents(searchParam : string) : PublicEvent[]{
-    //TODO: Send request to backend and return all events
+  searchEvents(searchParam: string): Observable<any> {
     console.log(searchParam);
-    const testEvent : PublicEvent = {
-      email: "test@gmail.com",
-      eventDate: "01.05.2024 19:30",
-      eventDescription: "",
-      eventLocation: "Castleroad 4, 12749-New Hill",
-      eventTitle: "Super Cool Wedding",
-      locationDescription: "Big castle on the hill, creepy looking butler awaits you!",
-      name: "John Smith"
-    }
-    return [testEvent];
+
+    let params = new HttpParams()
+        .set('page_number', '0')
+        .set('page_size', '100')
+        .set('event_type', 'PUBLIC')
+        .set('title', searchParam);
+
+    return this.http.get(`${hostUrl}event/`, { params });
   }
 
   signUpEvent(publicEventSignUp : PublicEventSignUp){

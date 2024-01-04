@@ -27,6 +27,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import { SignupPopupComponent } from './signup-popup/signup-popup.component';
 import {MatTooltipModule} from "@angular/material/tooltip";
 import { SearchBarComponent } from './search-bar/search-bar.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
         MatSnackBarModule,
         MatToolbarModule,
         FormsModule,
-        MatTooltipModule
+        MatTooltipModule,
+        HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]

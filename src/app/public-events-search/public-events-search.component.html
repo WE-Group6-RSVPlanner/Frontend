@@ -1,9 +1,9 @@
 <section class="wrapper">
-  <div class="container">
+  <div fxLayout="column" class="container">
     <div class="row pb-5 search-scale">
       <app-search-bar></app-search-bar>
     </div>
-    <div class="row justify-content-center pb-4" *ngFor="let event of events">
+    <div fxFlex class="row justify-content-center pb-4" *ngFor="let event of events">
       <div class="signup-outer-container">
         <div class="signup-container">
           <button mat-fab class="card-button" matTooltip="SignUp" (click)="signUp(event)" aria-label="SignUp to the public event">
@@ -27,7 +27,7 @@
                   </mat-list-item>
                   <mat-list-item *ngIf="event.eventDescription != ''">
                     <mat-icon matListItemIcon>description</mat-icon>
-                    <div matListItemTitle>Waiting for you</div>
+                    <div matListItemTitle>Expecting</div>
                     <div matListItemLine>{{event.eventDescription}}</div>
                   </mat-list-item>
                   <mat-list-item *ngIf="event.locationDescription != ''">
@@ -44,6 +44,10 @@
                   <mat-list-item>
                     <mat-icon matListItemIcon>location_on</mat-icon>
                     <div matListItemTitle>{{event.eventLocation}}</div>
+                  </mat-list-item>
+                  <mat-list-item>
+                    <mat-icon matListItemIcon>groups</mat-icon>
+                    <div matListItemTitle>{{event.participants}}</div>
                   </mat-list-item>
                 </mat-list>
               </div>

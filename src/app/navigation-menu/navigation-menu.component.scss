@@ -1,5 +1,11 @@
 @import "src/styles/colors";
 
+.navbar{
+  position: fixed;
+  z-index: 101;
+  width: 100%;
+}
+
 .navbar-logo{
   max-height: 7vh;
   max-width: 80vw;

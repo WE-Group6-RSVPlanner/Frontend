@@ -72,9 +72,17 @@ export class PublicEventsSearchComponent implements OnInit {
         publicEvent: event
 
       }
-      this.searchService.signUpEvent(publicEventSignUp);
-      //TODO: Message based on success of service
-      this.snackBar.open(signupValue.name + ", you are signed up for " + event.eventTitle, "Thanks!")
+
+      this.searchService.signUpEvent(publicEventSignUp)
+          .subscribe(response => {
+            console.log(response);
+            this.snackBar.open(signupValue.name + ", you are signed up for " + event.eventTitle, "Thanks!")
+          }, error => {
+            console.log(error.error.error)
+            console.log("ERROR CODE: " + error.status)
+            console.log(error)
+            this.snackBar.open("Ooops, something went wrong!", "Close")
+          })
     })
   }
 }

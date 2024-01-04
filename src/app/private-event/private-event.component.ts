@@ -71,6 +71,7 @@ export class PrivateEventComponent implements OnInit {
   createEvent(){
     if(this.privateEventForm.valid && this.dateValid() && this.participantsValid()){
       let newEvent:PrivateEvent = {
+        eventID: "",
         email: this.privateEventForm.value.email,
         eventDates: this.privateEventForm.get('dateList').value.map(this.formatDate),
         eventDescription: this.privateEventForm.value.description,

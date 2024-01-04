@@ -38,6 +38,7 @@ export class PublicEventComponent implements OnInit {
   createEvent(){
     if(this.publicEventForm.valid){
       let newEvent:PublicEvent = {
+        eventID: "",
         email: this.publicEventForm.value.email,
         eventDate: this.formatDate(this.publicEventForm.value.date),
         eventDescription: this.publicEventForm.value.description,

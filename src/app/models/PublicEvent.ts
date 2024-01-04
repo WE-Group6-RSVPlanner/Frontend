@@ -1,4 +1,5 @@
 export interface PublicEvent{
+  eventID:string,
   email:string,
   name:string,
   eventTitle:string,

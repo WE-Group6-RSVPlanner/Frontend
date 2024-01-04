@@ -40,6 +40,7 @@ export class PublicEventsSearchComponent implements OnInit {
       .subscribe(data => {
         console.log(data);
         this.events = data.map((event: any) => ({
+          eventID: event.event_id,
           email: event.organizer.email,
           name: event.organizer.name,
           eventTitle: event.title,

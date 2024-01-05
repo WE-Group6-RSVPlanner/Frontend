@@ -8,10 +8,10 @@ import {PublicEvent} from "../models/PublicEvent";
 
 @Component({
   selector: 'app-public-event',
-  templateUrl: './public-event.component.html',
-  styleUrls: ['./public-event.component.scss']
+  templateUrl: './create-public-event.component.html',
+  styleUrls: ['./create-public-event.component.scss']
 })
-export class PublicEventComponent implements OnInit {
+export class CreatePublicEventComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,

@@ -11,8 +11,8 @@ import { MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from "@angular/material/button";
 import {MatListModule} from "@angular/material/list";
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { PrivateEventComponent } from './private-event/private-event.component';
-import { PublicEventComponent } from './public-event/public-event.component';
+import { CreatePrivateEventComponent } from './private-event/create-private-event.component';
+import { CreatePublicEventComponent } from './public-event/create-public-event.component';
 import { MyEventsComponent } from './my-events/my-events.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
@@ -39,8 +39,8 @@ import { PrivateEventContainerComponent } from './private-event-container/privat
     NavigationMenuComponent,
     NavigationDialogComponent,
     DashboardComponent,
-    PrivateEventComponent,
-    PublicEventComponent,
+    CreatePrivateEventComponent,
+    CreatePublicEventComponent,
     MyEventsComponent,
     EventPopupComponent,
     ImagePopupComponent,

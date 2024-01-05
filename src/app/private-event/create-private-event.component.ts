@@ -10,11 +10,11 @@ import {Router} from "@angular/router";
 
 
 @Component({
-  selector: 'app-private-event',
-  templateUrl: './private-event.component.html',
-  styleUrls: ['./private-event.component.scss']
+  selector: 'app-create-private-event',
+  templateUrl: './create-private-event.component.html',
+  styleUrls: ['./create-private-event.component.scss']
 })
-export class PrivateEventComponent implements OnInit {
+export class CreatePrivateEventComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,

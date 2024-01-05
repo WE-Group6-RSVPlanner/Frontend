@@ -5,7 +5,8 @@
 .card{
   overflow-x: auto !important;
   overflow-y: hidden !important;
-  min-height: 50vh !important;
+  min-height: 450px !important;
+  max-height: 50vh;
 }
 
 .event-image{

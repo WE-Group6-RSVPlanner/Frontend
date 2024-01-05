@@ -30,4 +30,22 @@
   outline: none !important;
 }
 
+.logout-button{
+  max-width: 250px;
+  display: flex;
+  align-items: center;
+  color: $text_dark_tertiary;
+  background-color: $contrast;
+  margin-right: 30px;
+
+  &:hover{
+    color: $text_bright;
+    background: $red-contrast;
+  }
+
+  mat-icon{
+    margin-left: 10px;
+  }
+
+}
 

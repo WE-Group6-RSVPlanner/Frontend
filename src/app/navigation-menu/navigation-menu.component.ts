@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {NavigationDialogComponent} from "../navigation-dialog/navigation-dialog.component";
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-navigation-menu',
@@ -8,9 +9,13 @@ import {NavigationDialogComponent} from "../navigation-dialog/navigation-dialog.
   styleUrls: ['./navigation-menu.component.scss']
 })
 export class NavigationMenuComponent implements OnInit {
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, public userService:UserService) { }
+
+  public user : string = "";
 
   ngOnInit() {
+    this.user = this.userService.getUser() || "";
+
   }
 
   openNavigation(activePageName : string) : void{
@@ -24,4 +29,7 @@ export class NavigationMenuComponent implements OnInit {
     })
   }
 
+  logOut() {
+    this.userService.logOut();
+  }
 }

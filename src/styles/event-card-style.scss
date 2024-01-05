@@ -7,7 +7,8 @@
   border: none;
   overflow:hidden;
   border-radius:20px;
-  min-height: 80vh;
+  min-height: 650px;
+  max-height: 80vh;
   box-shadow: 0 0 12px 0 rgba(0,0,0,0.2);
 
   @media (max-width: 768px) {

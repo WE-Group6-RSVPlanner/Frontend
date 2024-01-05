@@ -16,6 +16,10 @@ export class UserService {
     return this.getUser() != null;
   }
 
+  logOut(){
+    localStorage.removeItem("user");
+  }
+
   getUser():string | null{
     return localStorage.getItem("user");
   }

@@ -4,6 +4,9 @@
       <img mat-dialog-title src="../../assets/img/logo-no-background.png" alt="RSVPlanner Logo" class="navbar-logo">
     </a>
     <div class="d-flex">
+      <button *ngIf="userService.isLoggedIn()"  class="logout-button" mat-raised-button aria-label="LogOut Button"  (click)="logOut()">
+        {{user}}<mat-icon>logout</mat-icon>
+      </button>
       <button class="navbar-dropdown" mat-icon-button aria-label="Navigation Menu Button"  (click)="openNavigation('home')">
         <mat-icon>menu</mat-icon>
       </button>

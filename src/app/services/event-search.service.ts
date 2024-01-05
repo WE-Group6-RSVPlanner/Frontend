@@ -9,6 +9,7 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class EventSearchService {
+  private url = hostUrl + "event/";
 
   constructor(private http: HttpClient) { }
 
@@ -21,11 +22,24 @@ export class EventSearchService {
         .set('event_type', 'PUBLIC')
         .set('title', searchParam);
 
-    return this.http.get(`${hostUrl}event/`, { params });
+    return this.http.get(this.url, { params });
   }
 
   signUpEvent(publicEventSignUp : PublicEventSignUp){
-    console.log("Signed Up: " + publicEventSignUp.name);
-    return 200;
+    console.log("adding attendee ...")
+
+    const requestBody = {
+      name: publicEventSignUp.name,
+      email: publicEventSignUp.email,
+      attendee_availabilities: [
+        {
+          start_time: publicEventSignUp.publicEvent.eventDate + "T00:00:00Z",
+          end_time: publicEventSignUp.publicEvent.eventDate + "T00:00:00Z",
+          status: "ACCEPTED"
+        }
+      ]
+    };
+
+    return this.http.post(`${this.url}${publicEventSignUp.publicEvent.eventID}`, requestBody);
   }
 }

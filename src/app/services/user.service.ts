@@ -26,6 +26,7 @@ export class UserService {
     console.log(user);
     let testPrivateEvent : PrivateEvent =
       {
+        eventID: "",
         email: "",
         eventDates: ["01.01", "10.11", "12.12", "13.11", "14.11", "15.11", "17.11", "18.11", "20.11"],
         eventDescription: "test",
@@ -49,6 +50,7 @@ export class UserService {
     console.log(user);
     let testPublicEvent : PublicEvent =
       {
+        eventID: "",
         email: "stefan@stefan.at",
         eventDate: "10.12.2024",
         eventDescription: "Jetzt gehts los es ist Party angesagt!",

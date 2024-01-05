@@ -1,4 +1,5 @@
 export interface PrivateEvent{
+  eventID:string,
   email:string,
   name:string,
   eventTitle:string,

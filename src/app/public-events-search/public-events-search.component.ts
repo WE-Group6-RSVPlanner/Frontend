@@ -40,6 +40,7 @@ export class PublicEventsSearchComponent implements OnInit {
       .subscribe(data => {
         console.log(data);
         this.events = data.map((event: any) => ({
+          eventID: event.event_id,
           email: event.organizer.email,
           name: event.organizer.name,
           eventTitle: event.title,
@@ -51,8 +52,9 @@ export class PublicEventsSearchComponent implements OnInit {
         }))
         console.log(this.events);
       }, error => {
+        console.log(error.error.error)
         console.log("ERROR CODE: " + error.status)
-        console.log(error.message)
+        console.log(error)
         this.events = [];
       })
   }
@@ -71,9 +73,17 @@ export class PublicEventsSearchComponent implements OnInit {
         publicEvent: event
 
       }
-      this.searchService.signUpEvent(publicEventSignUp);
-      //TODO: Message based on success of service
-      this.snackBar.open(signupValue.name + ", you are signed up for " + event.eventTitle, "Thanks!")
+
+      this.searchService.signUpEvent(publicEventSignUp)
+          .subscribe(response => {
+            console.log(response);
+            this.snackBar.open(signupValue.name + ", you are signed up for " + event.eventTitle, "Thanks!")
+          }, error => {
+            console.log(error.error.error)
+            console.log("ERROR CODE: " + error.status)
+            console.log(error)
+            this.snackBar.open("Ooops, something went wrong!", "Close")
+          })
     })
   }
 }

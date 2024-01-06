@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
 import {PrivateEvent} from "../models/PrivateEvent";
 import {PublicEvent} from "../models/PublicEvent";
+import {hostUrl} from "../../environments/environment";
+import {HttpClient, HttpParams} from "@angular/common/http";
+import {Observable, EMPTY} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+    private url = hostUrl + "event/";
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   saveUser(email:string){
     localStorage.setItem("user",email);
@@ -24,22 +28,22 @@ export class UserService {
     return localStorage.getItem("user");
   }
 
-  getPrivateEventsOfUser():PrivateEvent[]{
-    //TODO: Add service to fetch private events from user by email
+  getPrivateEventsOfUser(): Observable<any> {
     let user = this.getUser();
-    console.log(user);
-    let testPrivateEvent : PrivateEvent =
-      {
-        eventID: "",
-        email: "",
-        eventDates: ["01.01", "10.11", "12.12", "13.11", "14.11", "15.11", "17.11", "18.11", "20.11"],
-        eventDescription: "test",
-        eventTitle: "Private Event",
-        name: "Stefan",
-        participants: ["Stefan", "Lisa", "Eren", "Franz","Fritz", "Fritz", "Fritz", "Fritz", "Fritz", "Fritz", "Fritz", "Fritz"]
-      }
 
-      return [testPrivateEvent];
+    if (user !== null) {
+        console.log(user);
+
+        let params = new HttpParams()
+            .set('page_number', '0')
+            .set('page_size', '100')
+            .set('event_type', 'PRIVATE')
+            .set('attendee_email', user);
+        return this.http.get(this.url, { params });
+    } else {
+        console.error('User is null');
+        return EMPTY;
+    }
   }
 
   submitPossibleDatesFromPrivateEvent(dateArray:string[], event:PrivateEvent){

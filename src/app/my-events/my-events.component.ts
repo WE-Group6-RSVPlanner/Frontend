@@ -20,7 +20,27 @@ export class MyEventsComponent implements OnInit {
   ngOnInit(): void {
     if (this.userService.isLoggedIn()){
       this.publicEvents = this.userService.getPublicEventsOfUser();
-      this.privateEvents = this.userService.getPrivateEventsOfUser();
+
+      this.userService.getPrivateEventsOfUser()
+          .subscribe(data => {
+            console.log(data)
+
+            this.privateEvents = data.map((privateEvent: any) => ({
+              eventID: privateEvent.event_id,
+              email: privateEvent.organizer.email,
+              name: privateEvent.organizer.name,
+              eventTitle: privateEvent.title,
+              eventDescription: privateEvent.description,
+              participants: [], // TODO: backend only returns the ones which have clicked "attend" but not invited people
+              eventDates: privateEvent.date_times.map((date_time: any) => date_time.start_time.split('T')[0].replace('-', ' '))
+            }))
+            console.log(this.privateEvents);
+          }, error => {
+            console.log(error.error.error)
+            console.log("ERROR CODE: " + error.status)
+            console.log(error)
+            this.privateEvents = [];
+          })
     }
   }
 

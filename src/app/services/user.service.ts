@@ -52,24 +52,23 @@ export class UserService {
     console.log(event.name);
   }
 
-  getPublicEventsOfUser():PublicEvent[]{
-    //TODO: Add service to fetch public events from user by email
-    let user = this.getUser();
-    console.log(user);
-    let testPublicEvent : PublicEvent =
-      {
-        eventID: "",
-        email: "stefan@stefan.at",
-        eventDate: "10.12.2024",
-        eventDescription: "Jetzt gehts los es ist Party angesagt!",
-        eventLocation: "Home",
-        eventTitle: "Public Event",
-        locationDescription: "",
-        name: "Franz",
-        participants: 281
-      }
+  getPublicEventsOfUser(): Observable<any> {
+      let user = this.getUser();
 
-      return [testPublicEvent];
+      if (user !== null) {
+          console.log(user);
+
+          let params = new HttpParams()
+              .set('page_number', '0')
+              .set('page_size', '100')
+              .set('event_type', 'PUBLIC')
+              .set('attendee_email', user);
+
+          return this.http.get(this.url, { params });
+      } else {
+          console.error('User is null');
+          return EMPTY;
+      }
   }
 
   signOutFromEvent(event : PublicEvent){

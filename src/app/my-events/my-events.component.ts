@@ -29,7 +29,7 @@ export class MyEventsComponent implements OnInit {
               name: publicEvent.organizer.name,
               eventTitle: publicEvent.title,
               eventDescription: publicEvent.description,
-              eventDate: publicEvent.date_times.map((date_time: any) => date_time.start_time.split('T')[0].replace('-', ' ')),
+              eventDate: publicEvent.date_times.map((date_time: any) => date_time.start_time.split('T')[0]),
               eventLocation: publicEvent.location,
               locationDescription: publicEvent.location_description,
               participants: publicEvent.attendees_count
@@ -53,7 +53,7 @@ export class MyEventsComponent implements OnInit {
               eventTitle: privateEvent.title,
               eventDescription: privateEvent.description,
               participants: [], // TODO: backend only returns the ones which have clicked "attend" but not invited people
-              eventDates: privateEvent.date_times.map((date_time: any) => date_time.start_time.split('T')[0].replace('-', ' '))
+              eventDates: privateEvent.date_times.map((date_time: any) => date_time.start_time.split('T')[0])
             }))
             console.log(this.privateEvents);
           }, error => {

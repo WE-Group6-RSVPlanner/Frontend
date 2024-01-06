@@ -25,6 +25,7 @@ export class GenerateEventService {
       })),
       location: "", // TODO?
       event_type: "PRIVATE",
+        // TODO: invited people are currently not accepted by backend
         //participants: eventData.participants,
       organizer: {
         name: eventData.name,

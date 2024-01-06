@@ -47,9 +47,20 @@ export class UserService {
   }
 
   submitPossibleDatesFromPrivateEvent(dateArray:string[], event:PrivateEvent){
-    //TODO: Add service to submit possible dates for user and private event
     console.log(dateArray);
-    console.log(event.name);
+    console.log(event);
+
+    const requestBody = {
+        name: event.name,
+        email: event.email,
+        attendee_availabilities: event.eventDates.map(eventDate => ({
+            start_time: eventDate + "T00:00:00Z",
+            end_time: eventDate + "T00:00:00Z",
+            status: dateArray.includes(eventDate) ? "ACCEPTED" : "DECLINED"
+        }))
+    };
+
+    return this.http.post(`${this.url}${event.eventID}`, requestBody);
   }
 
   getPublicEventsOfUser(): Observable<any> {

@@ -50,17 +50,26 @@ export class UserService {
     console.log(dateArray);
     console.log(event);
 
-    const requestBody = {
-        name: event.name,
-        email: event.email,
-        attendee_availabilities: event.eventDates.map(eventDate => ({
-            start_time: eventDate + "T00:00:00Z",
-            end_time: eventDate + "T00:00:00Z",
-            status: dateArray.includes(eventDate) ? "ACCEPTED" : "DECLINED"
-        }))
-    };
+    let user = this.getUser();
 
-    return this.http.post(`${this.url}${event.eventID}`, requestBody);
+    if (user !== null) {
+      console.log(user);
+
+      const requestBody = {
+        name: user.split('@')[0],
+        email: user,
+        attendee_availabilities: event.eventDates.map(eventDate => ({
+          start_time: eventDate + "T00:00:00Z",
+          end_time: eventDate + "T00:00:00Z",
+          status: dateArray.includes(eventDate) ? "ACCEPTED" : "DECLINED"
+        }))
+      };
+
+      return this.http.post(`${this.url}${event.eventID}`, requestBody);
+    } else {
+      console.error('User is null');
+      return EMPTY;
+    }
   }
 
   getPublicEventsOfUser(): Observable<any> {

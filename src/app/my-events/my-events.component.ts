@@ -54,6 +54,7 @@ export class MyEventsComponent implements OnInit {
               name: privateEvent.organizer.name,
               eventTitle: privateEvent.title,
               eventDescription: privateEvent.description,
+              eventLocation: privateEvent.location,
               participants: privateEvent.attendees.map((invited_person: any) => invited_person.email),
               eventDates: privateEvent.date_times.map((date_time: any) => date_time.start_time.split('T')[0])
             }))

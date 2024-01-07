@@ -45,4 +45,14 @@ export class PrivateEventContainerComponent implements OnInit {
           this.snackBar.open("Ooops, something went wrong!", "Close")
         })
   }
+
+  getYear(date: string) {
+    const split = date.split("-");
+    return split[0];
+  }
+
+  getDayMonth(date:string){
+    const split = date.split("-");
+    return `${split[1]}/${split[2]}`;
+  }
 }

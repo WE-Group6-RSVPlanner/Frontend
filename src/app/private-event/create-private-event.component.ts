@@ -35,6 +35,7 @@ export class CreatePrivateEventComponent implements OnInit {
       email: ['',[Validators.required, Validators.email]],
       title: ['',[Validators.required]],
       description: [''],
+      location:[''],
       dateList: [{value:this.dateList,disabled:true}],
       participantList: [{value:this.participantList,disabled:true}]
     })
@@ -75,6 +76,7 @@ export class CreatePrivateEventComponent implements OnInit {
         email: this.privateEventForm.value.email,
         eventDates: this.privateEventForm.get('dateList').value.map(this.formatDate),
         eventDescription: this.privateEventForm.value.description,
+        eventLocation: this.privateEventForm.value.location,
         eventTitle: this.privateEventForm.value.title,
         name: this.privateEventForm.value.name,
         participants: this.privateEventForm.get('participantList').value

@@ -16,6 +16,10 @@
             <div matListItemTitle>Expecting</div>
             <div matListItemLine>{{event.eventDescription}}</div>
           </mat-list-item>
+          <mat-list-item *ngIf="event.eventLocation != ''">
+            <mat-icon matListItemIcon>location_on</mat-icon>
+            <div matListItemLine>{{event.eventLocation}}</div>
+          </mat-list-item>
           <mat-divider class="m-2"></mat-divider>
           <div mat-subheader>Participants</div>
         </mat-list>
@@ -29,7 +33,10 @@
       <div class="col mr-3">
         <div class="row calender-container">
           <button id="{{date}}" *ngFor="let date of event.eventDates" type="button" class="btn-image m-2" (click)="selectDate(date)">
-            <p class="btn-text">{{date}}</p>
+            <div class="btn-text-container">
+              <span class="btn-heading">{{getYear(date)}}</span>
+              <span class="btn-text">{{getDayMonth(date)}}</span>
+            </div>
           </button>
         </div>
         <div class="row submit-calender-button-container">

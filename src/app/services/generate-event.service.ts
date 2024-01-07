@@ -23,7 +23,7 @@ export class GenerateEventService {
         start_time: eventDate + "T00:00:00Z",
         end_time: eventDate + "T00:00:00Z"
       })),
-      location: "", // TODO?
+      location: eventData.eventLocation,
       event_type: "PRIVATE",
       invited_people: eventData.participants.map(participant => ({
         name: participant.split("@")[0],

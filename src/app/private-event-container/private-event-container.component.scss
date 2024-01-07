@@ -2,6 +2,8 @@
 @import "src/styles/colors";
 @import "src/styles/animations";
 
+$buttonSize: 80px;
+
 .card{
   overflow-x: auto !important;
   overflow-y: hidden !important;
@@ -36,8 +38,8 @@ mat-divider{
 }
 
 .btn-image{
-  width: 120px;
-  height: 60px;
+  width: $buttonSize;
+  height: $buttonSize;
   border-radius: 10px;
   border: none;
   background-image: url('../../assets/img/CalenderIcon.svg');
@@ -45,16 +47,35 @@ mat-divider{
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0;
 }
 .clicked{
   background-image: url('../../assets/img/CalenderIcon_clicked.svg') !important;
 }
 
+.btn-text-container{
+  position: relative;
+  width: $buttonSize;
+  height: $buttonSize;
+}
+
+.btn-heading{
+  color: $text_bright;
+  position: absolute;
+  font-size: small;
+  margin: 0;
+  right: calc($buttonSize/2);
+  transform: translate(50%, 0%);
+}
+
 .btn-text{
-  color: $black;
+  position: absolute;
+  color: $text_dark_primary;
   font-weight: bold;
-  font-size: larger;
-  margin: 20px 0 0 0;
+  font-size: large;
+  right: calc($buttonSize/2);
+  margin-top: calc($buttonSize/2);
+  transform: translate(50%, -35%);
 }
 
 .calender-container{

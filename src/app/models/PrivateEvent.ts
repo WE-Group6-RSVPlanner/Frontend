@@ -5,5 +5,6 @@ export interface PrivateEvent{
   eventTitle:string,
   eventDescription:string,
   participants:string[],
-  eventDates:string[]
+  eventDates:string[],
+  eventLocation:string
 }

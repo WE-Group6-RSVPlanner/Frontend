@@ -29,11 +29,9 @@ export class UserService {
   }
 
   getPrivateEventsOfUser(): Observable<any> {
-    let user = this.getUser();
+    const user = this.getUser();
 
     if (user !== null) {
-        console.log(user);
-
         let params = new HttpParams()
             .set('page_number', '0')
             .set('page_size', '100')
@@ -47,25 +45,18 @@ export class UserService {
   }
 
   submitPossibleDatesFromPrivateEvent(dateArray:string[], event:PrivateEvent){
-    console.log(dateArray);
-    console.log(event);
-
-    let user = this.getUser();
+    const user = this.getUser();
 
     if (user !== null) {
-      console.log(user);
+      let encodedUser = encodeURIComponent(user);
 
-      const requestBody = {
-        name: user.split('@')[0],
-        email: user,
-        attendee_availabilities: event.eventDates.map(eventDate => ({
+      const requestBody = event.eventDates.map(eventDate => ({
           start_time: eventDate + "T00:00:00Z",
           end_time: eventDate + "T00:00:00Z",
           status: dateArray.includes(eventDate) ? "ACCEPTED" : "DECLINED"
-        }))
-      };
+        }));
 
-      return this.http.post(`${this.url}${event.eventID}`, requestBody);
+      return this.http.put(`${this.url}${event.eventID}/${encodedUser}`, requestBody);
     } else {
       console.error('User is null');
       return EMPTY;
@@ -73,11 +64,9 @@ export class UserService {
   }
 
   getPublicEventsOfUser(): Observable<any> {
-      let user = this.getUser();
+      const user = this.getUser();
 
       if (user !== null) {
-          console.log(user);
-
           let params = new HttpParams()
               .set('page_number', '0')
               .set('page_size', '100')

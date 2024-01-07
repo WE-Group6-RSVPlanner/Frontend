@@ -3,6 +3,7 @@ import {UserService} from "../services/user.service";
 import {PublicEvent} from "../models/PublicEvent";
 import {PrivateEvent} from "../models/PrivateEvent";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {EventsBackend} from "../models/backendModels/EventsBackend";
 
 @Component({
   selector: 'app-my-events',
@@ -23,7 +24,7 @@ export class MyEventsComponent implements OnInit {
           .subscribe(data => {
             console.log(data)
 
-            this.publicEvents = data.map((publicEvent: any) => ({
+            this.publicEvents = data.map((publicEvent: EventsBackend) => ({
               eventID: publicEvent.event_id,
               email: publicEvent.organizer.email,
               name: publicEvent.organizer.name,
@@ -44,9 +45,10 @@ export class MyEventsComponent implements OnInit {
 
       this.userService.getPrivateEventsOfUser()
           .subscribe(data => {
+            console.log("Data")
             console.log(data)
 
-            this.privateEvents = data.map((privateEvent: any) => ({
+            this.privateEvents = data.map((privateEvent: EventsBackend) => ({
               eventID: privateEvent.event_id,
               email: privateEvent.organizer.email,
               name: privateEvent.organizer.name,

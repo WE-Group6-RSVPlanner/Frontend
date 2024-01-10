@@ -10,8 +10,6 @@ export class DashboardComponent implements OnInit {
 
   constructor(private router : Router) { }
 
-  public searchText = "";
-
   ngOnInit(): void {
   }
 

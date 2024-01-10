@@ -81,8 +81,17 @@ export class UserService {
   }
 
   signOutFromEvent(event : PublicEvent){
-    //TODO: Add service remove user as participant from public event
-    console.log(event.name);
-    return 200;
+    const user = this.getUser();
+
+    if (user !== null) {
+      let encodedUser = encodeURIComponent(user);
+      console.log(event.eventID)
+      console.log(encodedUser)
+
+      return this.http.delete(`${this.url}${event.eventID}/${encodedUser}`);
+    } else {
+      console.error('User is null');
+      return EMPTY;
+    }
   }
 }

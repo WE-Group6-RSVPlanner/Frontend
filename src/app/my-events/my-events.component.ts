@@ -16,7 +16,7 @@ export class MyEventsComponent implements OnInit {
 
   public publicEvents: PublicEvent[] = [];
   public privateEvents: PrivateEvent[] = [];
-  public activateSignOut : boolean = false;
+  public activateSignOut : boolean = true;
 
   ngOnInit(): void {
     if (this.userService.isLoggedIn()){
@@ -69,8 +69,16 @@ export class MyEventsComponent implements OnInit {
   }
 
   signOut(event: PublicEvent) {
-    this.userService.signOutFromEvent(event);
-    this.snackBar.open("Successfully signed our from event!", "Close");
-    window.location.reload();
+    this.userService.signOutFromEvent(event)
+      .subscribe(response => {
+        console.log(response);
+        this.snackBar.open("You successfully signed out from: " + event.eventTitle, "Thanks!");
+        // window.location.reload();
+      }, error => {
+        console.log(error.error.error)
+        console.log("ERROR CODE: " + error.status)
+        console.log(error)
+        this.snackBar.open("Ooops, something went wrong!", "Close")
+      })
   }
 }

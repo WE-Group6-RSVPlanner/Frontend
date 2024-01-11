@@ -47,7 +47,8 @@ export class PrivateEventContainerComponent implements OnInit {
   }
 
   colourCalenderIcons(buttonId : string) {
-    return ""
+    const matchingAvailability = this.availabilities ? this.availabilities.find((availability: AttendeeAvailability) => availability.start_time === buttonId) : null;
+    return matchingAvailability ? matchingAvailability.status.toLowerCase() : "";
   }
 
   submitPossibleDates() {

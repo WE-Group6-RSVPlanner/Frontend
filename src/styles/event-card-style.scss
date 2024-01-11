@@ -28,6 +28,8 @@
 .card-img-overlay{
   background: $contrast;
   background: linear-gradient(-45deg, $contrast-trans7 0%, $contrast 100%);
+  min-height: inherit;
+  height: max-content;
 }
 .card-title{
   text-align: center;

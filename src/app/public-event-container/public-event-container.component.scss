@@ -4,9 +4,9 @@
 
 .card{
   overflow-x: auto !important;
-  overflow-y: hidden !important;
+  overflow-y: auto !important;
   min-height: 450px !important;
-  max-height: 50vh;
+  height: max-content;
 }
 
 .event-image{
@@ -23,6 +23,15 @@ div[matListItemTitle]{
   font-weight: bold;
   padding: 0 8px 0 10px;
   text-align: left;
+}
+
+mat-list-item{
+  height: auto !important;
+  padding-bottom: 15px!important;
+}
+
+div[matListItemLine]{
+  word-break: break-word;
 }
 
 h1{

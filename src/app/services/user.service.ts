@@ -3,7 +3,9 @@ import {PrivateEvent} from "../models/PrivateEvent";
 import {PublicEvent} from "../models/PublicEvent";
 import {hostUrl} from "../../environments/environment";
 import {HttpClient, HttpParams} from "@angular/common/http";
-import {Observable, EMPTY} from "rxjs";
+import {Observable, EMPTY, map} from "rxjs";
+import {Attendee, EventsBackend} from "../models/backendModels/EventsBackend";
+import {AttendeeAvailability} from "../models/backendModels/AttendeeAvailability";
 
 @Injectable({
   providedIn: 'root'
@@ -93,5 +95,20 @@ export class UserService {
       console.error('User is null');
       return EMPTY;
     }
+  }
+
+  getAttendeeDetails(event : PrivateEvent) {
+    const user = this.getUser();
+
+    return this.http.get<EventsBackend>(`${this.url}${event.eventID}`).pipe(
+      map(event => {
+        const attendee = event.attendees.find((a: Attendee) => a.email === user);
+        return attendee ? attendee.attendee_availabilities.map((av: AttendeeAvailability) => ({
+          start_time: av.start_time.split("T")[0],
+          end_time: av.start_time.split("T")[0],
+          status: av.status
+        })) : [];
+      })
+    )
   }
 }

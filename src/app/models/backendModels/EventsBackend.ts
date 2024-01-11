@@ -19,7 +19,7 @@ interface Organizer {
   name : string
 }
 
-interface Attendee{
+export interface Attendee{
   name:string,
   email:string,
   attendee_availabilities:AttendeeAvailability[]

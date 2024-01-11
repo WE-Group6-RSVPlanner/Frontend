@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {PrivateEvent} from "../models/PrivateEvent";
 import {UserService} from "../services/user.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {AttendeeAvailability} from "../models/backendModels/AttendeeAvailability";
 
 @Component({
   selector: 'app-private-event-container',
@@ -9,6 +10,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
   styleUrls: ['./private-event-container.component.scss']
 })
 export class PrivateEventContainerComponent implements OnInit {
+  availabilities: AttendeeAvailability[] | undefined;
 
   @Input()
   event!:PrivateEvent;
@@ -17,6 +19,18 @@ export class PrivateEventContainerComponent implements OnInit {
               private snackBar:MatSnackBar) { }
 
   ngOnInit(): void {
+    this.userService.getAttendeeDetails(this.event)
+      .subscribe( response => {
+        this.availabilities = response;
+        //response.forEach((availability: AttendeeAvailability) => {
+        //  console.log(`Start Time: ${availability.start_time}, Status: ${availability.status}`);
+        //});
+        }, error => {
+          console.log(error.error.error)
+          console.log("ERROR CODE: " + error.status)
+          console.log(error)
+        }
+      );
   }
 
   selectDate(buttonId : string) {
@@ -30,6 +44,10 @@ export class PrivateEventContainerComponent implements OnInit {
     } else {
       buttonElement.classList.add("accepted");
     }
+  }
+
+  colourCalenderIcons(buttonId : string) {
+    return ""
   }
 
   submitPossibleDates() {

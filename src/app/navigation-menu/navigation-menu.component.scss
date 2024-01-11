@@ -49,3 +49,16 @@
 
 }
 
+.notification-button{
+  color: $text_dark_tertiary;
+  background-color: $contrast;
+  margin-right: 30px;
+  height: 40px;
+  width: 40px;
+
+  &:hover{
+    color: $text_bright;
+    background-color: $red-contrast;
+  }
+}
+

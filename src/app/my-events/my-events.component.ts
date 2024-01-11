@@ -16,7 +16,6 @@ export class MyEventsComponent implements OnInit {
 
   public publicEvents: PublicEvent[] = [];
   public privateEvents: PrivateEvent[] = [];
-  public activateSignOut : boolean = true;
 
   ngOnInit(): void {
     if (this.userService.isLoggedIn()){

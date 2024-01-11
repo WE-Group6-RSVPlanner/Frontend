@@ -24,8 +24,17 @@ export class UserService {
     localStorage.removeItem("user");
   }
 
+
   getUser():string | null{
     return localStorage.getItem("user");
+  }
+
+  notificationEnabled():boolean{
+    return false;
+  }
+
+  setNotifications(newStatus:boolean){
+
   }
 
   getPrivateEventsOfUser(): Observable<any> {

@@ -7,7 +7,12 @@
       <button *ngIf="userService.isLoggedIn()"  class="logout-button" mat-raised-button aria-label="LogOut Button"  (click)="logOut()">
         {{user}}<mat-icon>logout</mat-icon>
       </button>
-      <button class="navbar-dropdown" mat-icon-button aria-label="Navigation Menu Button"  (click)="openNavigation('home')">
+      <button *ngIf="userService.isLoggedIn()" mat-fab class="notification-button" matTooltip="Notify Me" (click)="notificationEvent()" aria-label="Activate/Deactivate Notifications">
+        <mat-icon *ngIf="!navigationOn">notifications_active</mat-icon>
+        <mat-icon *ngIf="navigationOn">notifications_off</mat-icon>
+      </button>
+
+      <button class="navbar-dropdown" mat-icon-button aria-label="Navigation Menu Button" (click)="openNavigation('home')">
         <mat-icon>menu</mat-icon>
       </button>
     </div>

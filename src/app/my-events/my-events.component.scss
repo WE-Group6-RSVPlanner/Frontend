@@ -1,12 +1,12 @@
 @import "src/styles/event-card-style";
 
-.signup-outer-container{
+.overlay-buttons-container{
   position: relative;
   display: flex;
   z-index: 100;
 }
 
-.signup-container{
+.signup-button{
   position: absolute;
   left: 87%;
   top: 15px;

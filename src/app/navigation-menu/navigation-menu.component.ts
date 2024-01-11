@@ -12,9 +12,11 @@ export class NavigationMenuComponent implements OnInit {
   constructor(private dialog: MatDialog, public userService:UserService) { }
 
   public user : string = "";
+  public navigationOn:boolean = false;
 
   ngOnInit() {
     this.user = this.userService.getUser() || "";
+    this.navigationOn = this.userService.notificationEnabled();
 
   }
 
@@ -31,5 +33,10 @@ export class NavigationMenuComponent implements OnInit {
 
   logOut() {
     this.userService.logOut();
+  }
+
+  notificationEvent() {
+    this.userService.setNotifications(!this.navigationOn);
+    this.navigationOn = !this.navigationOn;
   }
 }

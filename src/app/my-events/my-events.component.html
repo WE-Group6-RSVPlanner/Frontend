@@ -3,8 +3,8 @@
     <app-user-login *ngIf="!userService.isLoggedIn()"></app-user-login>
     <div *ngIf="userService.isLoggedIn()" class="event-container">
       <div fxFlex class="row justify-content-center pb-4" *ngFor="let event of publicEvents">
-        <div *ngIf="activateSignOut" class="signup-outer-container">
-          <div class="signup-container">
+        <div class="overlay-buttons-container">
+          <div class="signup-button">
             <button mat-fab class="card-button" matTooltip="Sign Out" (click)="signOut(event)" aria-label="SignOut from public event">
               <mat-icon>remove</mat-icon>
             </button>

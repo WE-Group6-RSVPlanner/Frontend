@@ -21,16 +21,20 @@ export class PrivateEventContainerComponent implements OnInit {
 
   selectDate(buttonId : string) {
     let buttonElement = document.getElementById(buttonId)!;
-    if(buttonElement.classList.contains("clicked")){
-      buttonElement.classList.remove("clicked");
-    }else {
-      buttonElement.classList.add("clicked");
+    if(buttonElement.classList.contains("accepted")) {
+      buttonElement.classList.remove("accepted");
+      buttonElement.classList.add("declined");
+    } else if(buttonElement.classList.contains("declined")) {
+      buttonElement.classList.remove("declined");
+      buttonElement.classList.add("accepted");
+    } else {
+      buttonElement.classList.add("accepted");
     }
   }
 
   submitPossibleDates() {
     let dateArray: string[] = [];
-    Array.from(document.getElementsByClassName("clicked")).forEach(element => {
+    Array.from(document.getElementsByClassName("accepted")).forEach(element => {
       dateArray.push(element.id)
     })
 

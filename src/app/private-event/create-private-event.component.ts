@@ -79,7 +79,8 @@ export class CreatePrivateEventComponent implements OnInit {
         eventLocation: this.privateEventForm.value.location,
         eventTitle: this.privateEventForm.value.title,
         name: this.privateEventForm.value.name,
-        participants: this.privateEventForm.get('participantList').value
+        participants: this.privateEventForm.get('participantList').value,
+        attendees: []
       }
 
       this.eventService.createPrivateEvent(newEvent)

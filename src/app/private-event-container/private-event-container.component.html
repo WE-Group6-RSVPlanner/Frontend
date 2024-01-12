@@ -23,11 +23,21 @@
           <mat-divider class="m-2"></mat-divider>
           <div mat-subheader>Participants</div>
         </mat-list>
-        <div class="row">
-          <div *ngFor="let participant of event.participants" class=" col text-center">
-            <mat-icon matListItemIcon>person</mat-icon>
-            <div matListItemTitle class="text-center">{{ participant }}</div>
-          </div>
+        <div class="row table-container">
+          <table mat-table [dataSource]="attendeeAvailability" class="date-table">
+            <ng-container sticky matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef>Name</th>
+              <td mat-cell *matCellDef="let attendee">{{attendee.name}}</td>
+            </ng-container>
+            <ng-container *ngFor="let tableCol of dateColumns; index as i" [matColumnDef]=tableCol>
+              <th mat-header-cell *matHeaderCellDef>{{formatDateHeader(tableCol)}}</th>
+              <td mat-cell *matCellDef="let attendee">
+                <mat-icon> {{attendee.availability[i].status == "ACCEPTED" ? "check" : "close"}} </mat-icon>
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="tableColumns; sticky:true;"></tr>
+            <tr mat-row *matRowDef="let row, columns: tableColumns;"></tr>
+          </table>
         </div>
       </div>
       <div class="col mr-3">

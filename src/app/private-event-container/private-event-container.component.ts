@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PrivateEvent} from "../models/PrivateEvent";
+import {PrivateAttendeeAvailable, PrivateEvent} from "../models/PrivateEvent";
 import {UserService} from "../services/user.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {AttendeeAvailability} from "../models/backendModels/AttendeeAvailability";
@@ -14,6 +14,10 @@ export class PrivateEventContainerComponent implements OnInit {
 
   @Input()
   event!:PrivateEvent;
+
+  public attendeeAvailability : PrivateAttendeeAvailable[] = [];
+  public tableColumns : string[] = ['name'];
+  public dateColumns : string[] = [];
 
   constructor(private userService:UserService,
               private snackBar:MatSnackBar) { }
@@ -31,6 +35,15 @@ export class PrivateEventContainerComponent implements OnInit {
           console.log(error)
         }
       );
+
+    this.attendeeAvailability = this.event.attendees.map(attendees => ({
+      name: attendees.name,
+      availability: attendees.attendee_availabilities
+    }))
+    this.attendeeAvailability[0].availability.forEach(value => {
+      this.dateColumns.push(value.start_time);
+    })
+    this.tableColumns = this.tableColumns.concat(this.dateColumns);
   }
 
   selectDate(buttonId : string) {

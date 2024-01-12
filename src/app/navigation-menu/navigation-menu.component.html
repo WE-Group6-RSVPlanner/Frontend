@@ -8,8 +8,7 @@
         {{user}}<mat-icon>logout</mat-icon>
       </button>
       <button *ngIf="userService.isLoggedIn()" mat-fab class="notification-button" matTooltip="Notify Me" (click)="notificationEvent()" aria-label="Activate/Deactivate Notifications">
-        <mat-icon *ngIf="!navigationOn">notifications_active</mat-icon>
-        <mat-icon *ngIf="navigationOn">notifications_off</mat-icon>
+        <mat-icon>{{navigationOn ? "notifications_off" : "notifications_active"}}</mat-icon>
       </button>
 
       <button class="navbar-dropdown" mat-icon-button aria-label="Navigation Menu Button" (click)="openNavigation('home')">

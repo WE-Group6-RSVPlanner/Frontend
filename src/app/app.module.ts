@@ -32,6 +32,7 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import {MatCardModule} from "@angular/material/card";
 import { PublicEventContainerComponent } from './public-event-container/public-event-container.component';
 import { PrivateEventContainerComponent } from './private-event-container/private-event-container.component';
+import {MatTableModule} from "@angular/material/table";
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { PrivateEventContainerComponent } from './private-event-container/privat
     FormsModule,
     MatTooltipModule,
     HttpClientModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

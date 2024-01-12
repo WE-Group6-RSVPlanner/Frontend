@@ -60,12 +60,16 @@ export class PrivateEventContainerComponent implements OnInit {
     this.userService.submitPossibleDatesFromPrivateEvent(dateArray, this.event)
         .subscribe(response => {
           console.log(response);
-          this.snackBar.open("You successfully signed up for: " + dateArray, "Thanks!")
+          this.snackBar.open("Your events have been updated successfully!", "Thanks!")
         }, error => {
           console.log(error.error.error)
           console.log("ERROR CODE: " + error.status)
           console.log(error)
-          this.snackBar.open("Ooops, something went wrong!", "Close")
+          if (this.event.email == this.userService.getUser()){
+            this.snackBar.open("You organized it, don't leave your own event!", "Close")
+          }else {
+            this.snackBar.open("Ooops, something went wrong!", "Close")
+          }
         })
   }
 

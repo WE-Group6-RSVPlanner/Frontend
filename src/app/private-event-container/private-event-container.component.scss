@@ -95,10 +95,44 @@ mat-divider{
   max-width: 50%;
   justify-self: center;
   color: $text_bright;
-  background-color: $red-contrast;
+  background-color: $button-contrast;
 
   &:hover{
-    background: $contrast;
+    background: $button-hover;
     box-shadow: 0 0 10px 0 $black;
   }
+}
+
+.table-container{
+  margin: 0 10px 0 10px;
+  max-height: 150px;
+  overflow: auto;
+}
+
+table{
+  max-height: 100%;
+  overflow: scroll;
+}
+
+.mat-header-row{
+  height: 30px;
+}
+.mat-header-cell{
+  color:$text_bright;
+  background-color: $button-contrast;
+  text-align: center;
+}
+
+.mat-row{
+  height: 35px;
+}
+
+.mat-cell{
+  color: $text_dark_secondary;
+  background-color: $white;
+  text-align: center;
+}
+
+.mat-column-name{
+  width: 10%;
 }

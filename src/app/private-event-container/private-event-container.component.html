@@ -42,7 +42,7 @@
       </div>
       <div class="col mr-3">
         <div class="row calender-container">
-          <button id="{{date}}" *ngFor="let date of event.eventDates" type="button" class="btn-image m-2" (click)="selectDate(date)" [ngClass]="colourCalenderIcons(date)">
+          <button id="{{date}}" *ngFor="let date of event.eventDates" type="button" class="btn-image m-2 {{event.eventID}}" (click)="selectDate(date)" [ngClass]="colourCalenderIcons(date)">
             <div class="btn-text-container">
               <span class="btn-heading">{{getYear(date)}}</span>
               <span class="btn-text">{{getDayMonth(date)}}</span>

@@ -48,14 +48,16 @@ export class PrivateEventContainerComponent implements OnInit {
 
   selectDate(buttonId : string) {
     let buttonElement = document.getElementById(buttonId)!;
-    if(buttonElement.classList.contains("accepted")) {
-      buttonElement.classList.remove("accepted");
-      buttonElement.classList.add("declined");
-    } else if(buttonElement.classList.contains("declined")) {
-      buttonElement.classList.remove("declined");
-      buttonElement.classList.add("accepted");
-    } else {
-      buttonElement.classList.add("accepted");
+    if (this.isFromThisEvent(buttonElement)){
+      if(buttonElement.classList.contains("accepted")) {
+        buttonElement.classList.remove("accepted");
+        buttonElement.classList.add("declined");
+      } else if(buttonElement.classList.contains("declined")) {
+        buttonElement.classList.remove("declined");
+        buttonElement.classList.add("accepted");
+      } else {
+        buttonElement.classList.add("accepted");
+      }
     }
   }
 
@@ -64,16 +66,22 @@ export class PrivateEventContainerComponent implements OnInit {
     return matchingAvailability ? matchingAvailability.status.toLowerCase() : "";
   }
 
+  isFromThisEvent(element: globalThis.Element):boolean{
+    return element.classList.contains(this.event.eventID)
+  }
+
   submitPossibleDates() {
     let dateArray: string[] = [];
     Array.from(document.getElementsByClassName("accepted")).forEach(element => {
-      dateArray.push(element.id)
+      if (this.isFromThisEvent(element)){
+        dateArray.push(element.id)
+      }
     })
 
     this.userService.submitPossibleDatesFromPrivateEvent(dateArray, this.event)
         .subscribe(response => {
           console.log(response);
-          this.snackBar.open("Your events have been updated successfully!", "Thanks!")
+          this.snackBar.open("Your events have been updated to attend: " + dateArray, "Thanks!")
         }, error => {
           console.log(error.error.error)
           console.log("ERROR CODE: " + error.status)
@@ -94,5 +102,10 @@ export class PrivateEventContainerComponent implements OnInit {
   getDayMonth(date:string){
     const split = date.split("-");
     return `${split[1]}/${split[2]}`;
+  }
+
+  formatDateHeader(ISODate: string) {
+    const date = new Date(ISODate);
+    return `${date.getDay()}.${date.getMonth()+1}.${date.getFullYear()}`;
   }
 }

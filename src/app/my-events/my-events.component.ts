@@ -21,8 +21,6 @@ export class MyEventsComponent implements OnInit {
     if (this.userService.isLoggedIn()){
       this.userService.getPublicEventsOfUser()
           .subscribe(data => {
-            console.log(data)
-
             this.publicEvents = data.map((publicEvent: EventsBackend) => ({
               eventID: publicEvent.event_id,
               email: publicEvent.organizer.email,
@@ -34,7 +32,6 @@ export class MyEventsComponent implements OnInit {
               locationDescription: publicEvent.location_description,
               participants: publicEvent.attendees_count
             }))
-            console.log(this.publicEvents);
           }, error => {
             console.log(error.error.error)
             console.log("ERROR CODE: " + error.status)
@@ -44,9 +41,6 @@ export class MyEventsComponent implements OnInit {
 
       this.userService.getPrivateEventsOfUser()
           .subscribe(data => {
-            console.log("Data")
-            console.log(data)
-
             this.privateEvents = data.map((privateEvent: EventsBackend) => ({
               eventID: privateEvent.event_id,
               email: privateEvent.organizer.email,
@@ -58,7 +52,6 @@ export class MyEventsComponent implements OnInit {
               eventDates: privateEvent.date_times.map((date_time: any) => date_time.start_time.split('T')[0]),
               attendees:privateEvent.attendees
             }))
-            console.log(this.privateEvents);
           }, error => {
             console.log(error.error.error)
             console.log("ERROR CODE: " + error.status)

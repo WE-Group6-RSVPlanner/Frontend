@@ -44,20 +44,20 @@
 }
 
 .dialog-button{
-  background-color: $red-contrast;
+  background-color: $button-contrast;
 
   &:hover{
-    background: $contrast;
+    background: $button-hover;
   }
 }
 
 .card-button{
   margin: 8px;
   color: $text_bright;
-  background-color: $red-contrast;
+  background-color: $button-contrast;
 
   &:hover{
-    background: $contrast;
+    background: $button-hover;
     box-shadow: 0 0 10px 0 $black;
   }
 }

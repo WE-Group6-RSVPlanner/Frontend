@@ -3,8 +3,8 @@
     <div class="card search-bar text-dark" style="background-image:url('assets/img/private-event-bg.jpg');">
       <div class="card-img-overlay">
         <form class="d-flex search-container">
-          <input id="search-field" class="form-control search-text me-2" value="{{searchValue}}" type="search" placeholder="Find public events!" aria-label="Search">
-          <button class="btn btn-dark search-button" (click)="searchEvents()">
+          <input id="search-field" class="form-control search-text me-2" value="{{searchValue}}" type="search" placeholder="Find public events!" aria-label="Search Public Events">
+          <button class="btn btn-dark search-button" aria-label="Search Button" (click)="searchEvents()">
             <mat-icon class="search-icon">search</mat-icon>
           </button>
         </form>

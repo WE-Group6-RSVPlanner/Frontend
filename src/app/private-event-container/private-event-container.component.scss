@@ -49,8 +49,11 @@ mat-divider{
   align-items: center;
   padding: 0;
 }
-.clicked{
-  background-image: url('../../assets/img/CalenderIcon_clicked.svg') !important;
+.accepted{
+  background-image: url('../../assets/img/CalenderIcon_accepted.svg') !important;
+}
+.declined{
+  background-image: url('../../assets/img/CalenderIcon_declined.svg') !important;
 }
 
 .btn-text-container{

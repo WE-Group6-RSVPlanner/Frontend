@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {PrivateEvent} from "../models/PrivateEvent";
 import {UserService} from "../services/user.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {AttendeeAvailability} from "../models/backendModels/AttendeeAvailability";
 
 @Component({
   selector: 'app-private-event-container',
@@ -9,6 +10,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
   styleUrls: ['./private-event-container.component.scss']
 })
 export class PrivateEventContainerComponent implements OnInit {
+  availabilities: AttendeeAvailability[] | undefined;
 
   @Input()
   event!:PrivateEvent;
@@ -17,32 +19,57 @@ export class PrivateEventContainerComponent implements OnInit {
               private snackBar:MatSnackBar) { }
 
   ngOnInit(): void {
+    this.userService.getAttendeeDetails(this.event)
+      .subscribe( response => {
+        this.availabilities = response;
+        //response.forEach((availability: AttendeeAvailability) => {
+        //  console.log(`Start Time: ${availability.start_time}, Status: ${availability.status}`);
+        //});
+        }, error => {
+          console.log(error.error.error)
+          console.log("ERROR CODE: " + error.status)
+          console.log(error)
+        }
+      );
   }
 
   selectDate(buttonId : string) {
     let buttonElement = document.getElementById(buttonId)!;
-    if(buttonElement.classList.contains("clicked")){
-      buttonElement.classList.remove("clicked");
-    }else {
-      buttonElement.classList.add("clicked");
+    if(buttonElement.classList.contains("accepted")) {
+      buttonElement.classList.remove("accepted");
+      buttonElement.classList.add("declined");
+    } else if(buttonElement.classList.contains("declined")) {
+      buttonElement.classList.remove("declined");
+      buttonElement.classList.add("accepted");
+    } else {
+      buttonElement.classList.add("accepted");
     }
+  }
+
+  colourCalenderIcons(buttonId : string) {
+    const matchingAvailability = this.availabilities ? this.availabilities.find((availability: AttendeeAvailability) => availability.start_time === buttonId) : null;
+    return matchingAvailability ? matchingAvailability.status.toLowerCase() : "";
   }
 
   submitPossibleDates() {
     let dateArray: string[] = [];
-    Array.from(document.getElementsByClassName("clicked")).forEach(element => {
+    Array.from(document.getElementsByClassName("accepted")).forEach(element => {
       dateArray.push(element.id)
     })
 
     this.userService.submitPossibleDatesFromPrivateEvent(dateArray, this.event)
         .subscribe(response => {
           console.log(response);
-          this.snackBar.open("You successfully signed up for: " + dateArray, "Thanks!")
+          this.snackBar.open("Your events have been updated successfully!", "Thanks!")
         }, error => {
           console.log(error.error.error)
           console.log("ERROR CODE: " + error.status)
           console.log(error)
-          this.snackBar.open("Ooops, something went wrong!", "Close")
+          if (this.event.email == this.userService.getUser()){
+            this.snackBar.open("You organized it, don't leave your own event!", "Close")
+          }else {
+            this.snackBar.open("Ooops, something went wrong!", "Close")
+          }
         })
   }
 

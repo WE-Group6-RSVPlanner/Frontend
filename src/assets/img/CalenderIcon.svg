@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="100%" height="100%" viewBox="0 0 1080 1080" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-    <rect x="0" y="230.413" width="1080" height="849.587" style="fill:white;"/>
-    <g transform="matrix(1,0,0,0.964286,0,0)">
-        <rect x="0" y="0" width="1080" height="238.946" style="fill:rgb(200,0,0);"/>
-    </g>
-    <g transform="matrix(5.44444,0,0,0.5,-1338.96,-12.482)">
-        <path d="M296.787,33.453C296.787,14.99 295.41,0 293.714,0L291.325,0C289.629,0 288.253,14.99 288.253,33.453L288.253,196.96C288.253,215.423 289.629,230.413 291.325,230.413L293.714,230.413C295.41,230.413 296.787,215.423 296.787,196.96L296.787,33.453Z" style="fill:white;"/>
-    </g>
-    <g transform="matrix(5.44444,0,0,0.5,-766.251,-12.482)">
-        <path d="M296.787,33.453C296.787,14.99 295.41,0 293.714,0L291.325,0C289.629,0 288.253,14.99 288.253,33.453L288.253,196.96C288.253,215.423 289.629,230.413 291.325,230.413L293.714,230.413C295.41,230.413 296.787,215.423 296.787,196.96L296.787,33.453Z" style="fill:white;"/>
-    </g>
+<!-- Created with Vectornator (http://vectornator.io/) -->
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 1080 1080" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs/>
+<clipPath id="ArtboardFrame">
+<rect height="1080" width="1080" x="0" y="0"/>
+</clipPath>
+<g clip-path="url(#ArtboardFrame)" id="Ohne-Titel">
+<path d="M0 230.413L1080 230.413L1080 230.413L1080 1080L1080 1080L0 1080L0 1080L0 230.413L0 230.413Z" fill="#ffffff" fill-rule="evenodd" opacity="1" stroke="none"/>
+<path d="M0 0L1080 0L1080 0L1080 230.412L1080 230.412L0 230.412L0 230.412L0 0L0 0Z" fill="#5f5c5c" fill-rule="evenodd" opacity="1" stroke="none"/>
+<path d="M276.879 4.2445C276.879-4.987 269.382-12.482 260.148-12.482L247.141-12.482C237.908-12.482 230.416-4.987 230.416 4.2445L230.416 85.998C230.416 95.2295 237.908 102.724 247.141 102.724L260.148 102.724C269.382 102.724 276.879 95.2295 276.879 85.998L276.879 4.2445Z" fill="#ffffff" fill-rule="evenodd" opacity="1" stroke="none"/>
+<path d="M849.588 4.2445C849.588-4.987 842.091-12.482 832.857-12.482L819.85-12.482C810.617-12.482 803.125-4.987 803.125 4.2445L803.125 85.998C803.125 95.2295 810.617 102.724 819.85 102.724L832.857 102.724C842.091 102.724 849.588 95.2295 849.588 85.998L849.588 4.2445Z" fill="#ffffff" fill-rule="evenodd" opacity="1" stroke="none"/>
+</g>
 </svg>

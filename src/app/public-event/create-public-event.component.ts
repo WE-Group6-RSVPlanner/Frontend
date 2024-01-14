@@ -5,6 +5,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {GenerateEventService} from "../services/generate-event.service";
 import {Router} from "@angular/router";
 import {PublicEvent} from "../models/PublicEvent";
+import {GetEventImageService} from "../services/event-images.service";
 
 @Component({
   selector: 'app-public-event',
@@ -18,10 +19,12 @@ export class CreatePublicEventComponent implements OnInit {
     public dialog:MatDialog,
     private snackBar:MatSnackBar,
     private eventService:GenerateEventService,
-    private router:Router
+    private router:Router,
+    private eventImageService:GetEventImageService
   ) { }
 
   public publicEventForm : any;
+  selectedFile: File | null = null;
 
   ngOnInit(): void {
     this.publicEventForm = this.formBuilder.group({
@@ -33,6 +36,26 @@ export class CreatePublicEventComponent implements OnInit {
       location: [''],
       locationDescription: [''],
     })
+  }
+
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files[0]) {
+      this.selectedFile = input.files[0];
+    }
+  }
+
+  uploadEventImage(eventID: String, file: File): void {
+    console.log('trying to upload image');
+    this.eventImageService.putEventImage(eventID, file)
+      .subscribe(response => {
+        console.log('Image uploaded successfully');
+      }, error => {
+        console.error('Error uploading image');
+        console.log(error.message)
+        console.log("ERROR CODE: " + error.status)
+        console.log(error)
+      });
   }
 
   createEvent(){
@@ -52,6 +75,11 @@ export class CreatePublicEventComponent implements OnInit {
       this.eventService.createPublicEvent(newEvent)
           .subscribe(response => {
             console.log(response);
+
+            if (this.selectedFile) {
+              this.uploadEventImage(response.event_id, this.selectedFile);
+            }
+
             this.snackBar.open("Your event was created successfully!", "Close")
           }, error => {
             console.log(error.message)

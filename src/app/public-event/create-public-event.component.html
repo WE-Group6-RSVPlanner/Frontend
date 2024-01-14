@@ -54,6 +54,16 @@
                   <input matInput placeholder="You Event Location" formControlName="location">
                 </mat-form-field>
               </div>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>Event Image</mat-label>
+                  <input type="file" id="eventImage" #fileInput (change)="onFileSelected($event)" hidden>
+                  <input matInput [value]="selectedFile?.name" placeholder="Choose File" readonly>
+                  <button mat-icon-button matSuffix (click)="fileInput.click()">
+                    <mat-icon>folder</mat-icon>
+                  </button>
+                </mat-form-field>
+              </div>
               <div class="row justify-content-center">
                 <button (click)="createEvent()" class="btn card-button col-3">Create your Event</button>
               </div>

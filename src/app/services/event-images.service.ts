@@ -12,7 +12,14 @@ export class GetEventImageService {
 
   constructor(private http: HttpClient) { }
 
-  getEventImage(event : PublicEvent): Observable<Blob> {
+  getEventImage(event: PublicEvent): Observable<Blob> {
     return this.http.get(`${this.url}${event.eventID}/image`, { responseType: 'blob' });
+  }
+
+  putEventImage(eventID: String, imageFile: File): Observable<any> {
+    const formData: FormData = new FormData();
+    formData.append('image', imageFile, imageFile.name);
+
+    return this.http.put(`${this.url}${eventID}`, formData);
   }
 }

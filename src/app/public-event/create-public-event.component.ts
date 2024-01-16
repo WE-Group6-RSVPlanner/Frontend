@@ -46,7 +46,6 @@ export class CreatePublicEventComponent implements OnInit {
   }
 
   uploadEventImage(eventID: String, file: File): void {
-    console.log('trying to upload image');
     this.eventImageService.putEventImage(eventID, file)
       .subscribe(response => {
         console.log('Image uploaded successfully');

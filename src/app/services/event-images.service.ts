@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {hostUrl} from "../../environments/environment";
 import {Observable} from "rxjs";
 import {PublicEvent} from "../models/PublicEvent";
@@ -17,9 +17,9 @@ export class GetEventImageService {
   }
 
   putEventImage(eventID: String, imageFile: File): Observable<any> {
-    const formData: FormData = new FormData();
-    formData.append('image', imageFile, imageFile.name);
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'image/png');
 
-    return this.http.put(`${this.url}${eventID}`, formData);
+    return this.http.put(`${this.url}${eventID}`, imageFile, { headers });
   }
 }

@@ -38,7 +38,8 @@
         </mat-list>
       </div>
       <div class="col pt-4">
-        <img class="event-image" src="assets/img/private-event-bg_v2.jpg" alt="event-image">
+        <img *ngIf="imageUrl" class="event-image" [src]="imageUrl" alt="event-image">
+        <img *ngIf="!imageUrl" class="event-image" src="assets/img/private-event-bg_v2.jpg" alt="event-image">
       </div>
     </div>
   </div>

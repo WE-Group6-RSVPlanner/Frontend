@@ -1,6 +1,18 @@
 @import "src/styles/colors";
 @import "src/styles/popup-card";
 
+.close-button, .dialog-button{
+  background-color: $red-contrast;
+
+  &:hover{
+    background: $contrast;
+  }
+}
+
+mat-label{
+  color: $text_bright;
+}
+
 .list-group{
   margin-bottom: 15px;
 }

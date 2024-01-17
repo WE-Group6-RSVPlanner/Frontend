@@ -21,7 +21,6 @@ import { EventPopupComponent } from './event-popup/event-popup.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {ImagePopupComponent} from "./image-popup/image-popup.component";
 import { PublicEventsSearchComponent } from './public-events-search/public-events-search.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import { SignupPopupComponent } from './signup-popup/signup-popup.component';
@@ -44,7 +43,6 @@ import {MatTableModule} from "@angular/material/table";
     CreatePublicEventComponent,
     MyEventsComponent,
     EventPopupComponent,
-    ImagePopupComponent,
     PublicEventsSearchComponent,
     SignupPopupComponent,
     SearchBarComponent,

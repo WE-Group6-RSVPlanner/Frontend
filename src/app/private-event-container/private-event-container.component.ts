@@ -105,7 +105,6 @@ export class PrivateEventContainerComponent implements OnInit {
   }
 
   formatDateHeader(ISODate: string) {
-    const date = new Date(ISODate);
-    return `${date.getDay()}.${date.getMonth()+1}.${date.getFullYear()}`;
+    return ISODate.split("T")[0];
   }
 }
